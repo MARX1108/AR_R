@@ -37,6 +37,9 @@
                 </select>
             </div>
 
+
+            
+
             <div class = "form-group">
                 <label> subject one name</label>
                 <input type="subject_1_name" class = "form-control" name = "subject_1_name" placeholder = "name" autocomplete = "off required">
@@ -49,7 +52,7 @@
 
 
             <div class = "form-group">
-                <label class = "check-box-inline"> <input type="checkbox"> rehearsal </label>
+                <label class = "check-box-inline" > <input type="checkbox" name = "rehearsal"> rehearsal </label>
             </div>
             
             <div class = "form-group">
