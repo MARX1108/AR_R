@@ -23,7 +23,7 @@
             {
                 location.reload();
 
-                    $_SESSION["P_state"] = 2;
+                    // $_SESSION["P_state"] = 2;
                     // else if ($_SESSION["P_state"] == 2)
                     // {
                     //     $_SESSION["P_state"] = 3;
@@ -66,6 +66,10 @@
             else if ($_SESSION["P_state"] == 4)
             {
                 echo "STOP";
+            }
+            else if ($_SESSION["P_state"] == 5)
+            {
+                echo "Debug Model";
             }
         ?>
         </p>

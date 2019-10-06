@@ -35,7 +35,6 @@
             <button type = "submit" class = "btn btn-primary btn-block btn-lg" name = "start"> start </button>
             <button type = "submit" class = "btn btn-primary btn-block btn-lg" name = "reset"> reset </button>
             <button type = "submit" class = "btn btn-primary btn-block btn-lg" name = "stop"> stop </button>
-
     </div>
     </form>
 
@@ -48,7 +47,7 @@
                     }
 
                     if (isset($_POST['reset'])) {
-                        // start();    
+                        start();    
                         $_SESSION["P_state"] = 0;
                         $_SESSION['O_state'] = 0;
                     }
@@ -59,11 +58,27 @@
                         $_SESSION['O_state'] = 4;
                     }
 
-                    // function start(){
-                    //     // $_SESSION['P_state'] = 0; 
-                    //     echo "start";
-                    //     // echo "$p_state"; 
-                    // }
+
+                    function start()
+                    {
+                        $i = 0;
+                        while ( $i < 3)
+                        {
+                            $now = time();
+                            $_SESSION["time"] = $now;
+
+                            if (!isset($_SESSION['last_game_time'])
+                            || (time() - $_SESSION['last_game_time']) > 45) {
+
+                            // code to award points here
+
+                            $_SESSION['last_game_time'] = time();
+                            }
+
+
+                            $i = $i+1;
+                        }
+                    }
     ?>
 
 </body>
