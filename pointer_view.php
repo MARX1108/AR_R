@@ -22,7 +22,7 @@
             if(e.which == 13)
             {
                 location.reload();
-
+                // <?php?>
                     // $_SESSION["P_state"] = 2;
                     // else if ($_SESSION["P_state"] == 2)
                     // {
