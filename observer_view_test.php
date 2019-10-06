@@ -1,23 +1,9 @@
 <!DOCTYPE html>
 <html>
-
 <?php
-    // include("main.php"); 
     session_start();
 ?>
 
-<?php
-                    $p_state = $_SESSION['P_state'];    
-                    echo "$p_state"; 
-                    // if (isset($_GET['submit'])) {
-                    //     submit();    
-                    // }
-
-                    // function submit(){
-                    //     $p_state = $_SESSION['P_state']+1; 
-                    //     echo "$p_state"; 
-                    // }
-                ?>
 <head>
     <title>starter</title>
     <meta charset = "utf-8">
@@ -26,39 +12,27 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type = "text/css" href="css/observer_view.css">
+    <link rel="stylesheet" type = "text/css" href="css/pointer_view.css">
+
+    <script>
+        // setInterval(page_refresh, 1000);
+    </script>
+
 </head>
 <body>
     <div class = "header" id = "state_info">
         <h1>Observer View</h1>
         <h2><?php 
-        //echo "Step ".$_SESSION['O_state'];
+        echo "Step ".$_SESSION['O_state'];
         ?></h2>
-
-        
     </div>
     <div class = "content" id = "instruction">
         <p>Please wait for instructions</p>
-        
-        <div class = "form-group">
-                <!-- <input id='btn' name="submit" type='submit' value='Submit'> -->
-                <!-- <button type = "submit" class = "btn btn-primary btn-block btn-lg" name = "submit1"> submit1 </button> -->
-                <?php
-                    $p_state = $_SESSION['P_state'];    
-                    echo "$p_state"; 
-                ?>
-                
-                
-
-                
-        </div>
     </div>
 
-
-    <!-- <?php 
-    
-    // include("main.php")
-    ?> -->
+    <?php
+    //  include("main.php");
+    ?>
 
 </body>
 </html>
