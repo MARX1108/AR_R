@@ -1,0 +1,70 @@
+body{
+    background-color: #F4F9FD;    
+    font-family: noyh_bold;
+    color: #A1DFFF;
+}
+
+.header
+{
+    text-align: center;
+    margin-top: 2%;
+}
+
+.header h1, h2
+{
+    font-family: NoyhGeometricSlim-Bold;
+    font-size: 300%;
+    color: #A1DFFF;
+    letter-spacing: 0;
+}
+
+.content
+{
+    text-align: center;
+    margin-top: 15%;
+}
+
+.content p
+{
+
+
+    text-align: left;
+    display: inline-block;
+    font-size: 400%;
+    color: #64C7FA;
+    letter-spacing: 0;
+
+}
+
+
+
+
+/* extensions------------------------------------------------- */
+
+
+@font-face {
+    font-family: 'noyh_bold';
+    src: url('../assets/font/noyhgeometricslim-bold-webfont.woff2') format('woff2'),
+         url('../assets/font/noyhgeometricslim-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'noyh_bolditalic';
+    src: url('../assets/font/noyhgeometricslim-bolditalic-webfont.woff2') format('woff2'),
+         url('../assets/font/noyhgeometricslim-bolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'noyh_regular';
+    src: url('../assets/font/noyhgeometricslim-regular-webfont.woff2') format('woff2'),
+         url('../assets/font/noyhgeometricslim-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
