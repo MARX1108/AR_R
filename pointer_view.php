@@ -60,7 +60,7 @@
             }
             if ($_SESSION["P_state"] == 1)
             {
-                echo "<p id = 'main'> Click Button to Start \n";
+                echo "<p id = 'main'> Click ENTER to Start \n";
                 $_SESSION['trial_state'] = 1;
             }
             else if ($_SESSION["P_state"] == 3)
@@ -72,7 +72,7 @@
             else if ($_SESSION["P_state"] == 2)
             {
                 echo " <h1 id = 'target_number'> #16 </h1>";
-                echo "<p id = 'sub'> Click Button to Stop</p>";
+                echo "<p id = 'sub'> Click ENTER to proceed</p>";
             }
         ?>
         

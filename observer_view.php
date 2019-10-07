@@ -65,7 +65,7 @@
             }
             else if ($_SESSION["O_state"] == 1)
             {
-                echo "<p> Click button when you have made your choice <p>";
+                echo "<p> Click ENTER when you have made your choice <p>";
             }
             else if ($_SESSION["O_state"] == 3)
             {
