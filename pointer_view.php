@@ -5,7 +5,7 @@
 ?>
 
 <head>
-    <title>starter</title>
+    <title>Pointer View</title>
     <meta charset = "utf-8">
     <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
     <meta name = "viewport" content = "width = device-width, initial-scale = 1">
@@ -13,7 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" type = "text/css" href="css/pointer_view.css">
-    <meta http-equiv="refresh" content="1" >
+    <!-- <meta http-equiv="refresh" content="1" > -->
     <script  src = "./js/require.js"></script>
     <script  src = "./js/jquery-3.4.1.js"></script>
     <script>
@@ -50,65 +50,32 @@
         ?></h2>
     </div>
     <div class = "content" id = "instruction">
-        <!-- <p>Please wait for instructions</p> -->
-        <p id = "step_zero">
-            <?php
-                if ($_SESSION["P_state"] == 0)
-                {
-                    echo "Please wait for instructions!";
-                }
-            ?>
-        </p>
-        <p>
+
+    
         <?php 
 
+            if ($_SESSION["P_state"] == 0)
+            {
+                echo "<p id = 'main'> Please wait for instructions! \n </p>";
+            }
             if ($_SESSION["P_state"] == 1)
             {
-                echo "Click Button to Start";
+                echo "<p id = 'main'> Click Button to Start \n";
                 $_SESSION['trial_state'] = 1;
             }
             else if ($_SESSION["P_state"] == 3)
             {
-                echo "Round 1 Finished \n";
-                
+                echo "<p id = 'main'> Round 1 Finished \n </p>";
+                echo "<p id = 'sub'> Please wait for Instruction!</p>";
+
             }
-            // else if ($_SESSION["P_state"] == 4)
-            // {
-            //     echo "STOP";
-            // }
-            // else if ($_SESSION["P_state"] == 5)
-            // {
-            //     echo "Debug Model";
-            // }
-        ?>
-        </p>
-
-        <p id = "step_two_main">
-            <?php
-                if ($_SESSION["P_state"] == 2)
-                {
-                    echo "#16";
-                }
-            ?>
-        </p>
-
-        <p id = "step_two_sub">
-            <?php
-                if ($_SESSION["P_state"] == 2)
-                {
-                    echo "Click Button to Stop";
-                }
-            ?>
-        </p>
-
-        <p id = "step_three_sub">
-        <?php
-            if ($_SESSION["P_state"] == 3)
+            else if ($_SESSION["P_state"] == 2)
             {
-                echo "Please wait for Instruction......";    
-            }  
+                echo " <h1 id = 'target_number'> #16 </h1>";
+                echo "<p id = 'sub'> Click Button to Stop</p>";
+            }
         ?>
-        </p>
+        
     </div>
     
 </body>
