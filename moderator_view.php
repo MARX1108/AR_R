@@ -36,7 +36,9 @@
     <div class = "header" id = "state_info">
         <h1>Moderator View</h1>
         <h2><?php 
-        echo "Step ".$_SESSION['trial_state'];
+        echo "P: ".$_SESSION['P_state'];
+        echo "\n"; 
+        echo "O: ".$_SESSION['O_state'];
         ?></h2>
     </div>
     <form action="" method = "post">
