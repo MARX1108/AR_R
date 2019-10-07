@@ -62,7 +62,7 @@ function debug_to_console($data) {
         if ($query)
         {
             echo "<script>alert('submit successful)</script>";
-            echo "<script>window.open('moderator_view_control.php', '_self')</script>";
+            echo "<script>window.open('moderator_view.php', '_self')</script>";
         }
         else
         {

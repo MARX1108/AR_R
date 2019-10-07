@@ -1,5 +1,5 @@
 body{
-    color: #999;
+    color: #F5F5F5;    
 }
 
 .form-control
@@ -8,7 +8,7 @@ body{
     box-shadow: 0 10px 20px 0 rgba(227, 231, 255, 0.25);
     border-radius: 3px;
     border-color: #9da8f5;
-    background: #ffffff;
+    background: #F5F5F5;    
 }
 
 .form-control:focus{

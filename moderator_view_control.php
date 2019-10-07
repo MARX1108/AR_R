@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Moderator</title>
+    <title>Moderator View</title>
     <meta charset = "utf-8">
     <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
     <meta name = "viewport" content = "width = device-width, initial-scale = 1">
@@ -19,9 +19,9 @@
             </div>
 
             <div class = "form-group">
-                <button type = "submit" class = "btn btn-primary btn-block btn-lg" > Start </button>
-                <button type = "submit" class = "btn btn-primary btn-block btn-lg" > Stop </button>
-                <button type = "submit" class = "btn btn-primary btn-block btn-lg" > Reset </button>
+                <button type = "submit"  > Start </button>
+                <button type = "submit" > Stop </button>
+                <button type = "submit" > Reset </button>
             </div>
         </form>
 

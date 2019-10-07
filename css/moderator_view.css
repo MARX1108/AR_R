@@ -1,8 +1,8 @@
 body{
     font-family: noyh_bold;
-    background-color: #F4F9FD;    
+    background-color: #F5F5F5;    
     font-family: noyh_bold;
-    color: #A1DFFF;
+    color: #BEBEBE;
 }
 
 .header
@@ -16,7 +16,7 @@ body{
 {
     font-family: noyh_bold;
     font-size: 300%;
-    color: #A1DFFF;
+    color: #BEBEBE;
     letter-spacing: 0;
 }
 
@@ -26,23 +26,42 @@ body{
     text-align: center;
     
 }
-
-.content p
-{
-    margin-top: 15%;
-    font-family: noyh_bold;
-    text-align: left;
+.content p {
+    margin-top: 13%;
+    margin-bottom: 0%;
+    width: 100%;
     display: inline-block;
-    font-size: 400%;
-    color: #64C7FA;
+    font-size: 500%;
+    color: rgb(143, 143, 143);
     letter-spacing: 0;
-
 }
 
-#btn_number {
-    font-size: 700%;
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#target_number{
+    color: rgb(143, 143, 143);
+    margin-top: 100px;
+    font-size: 1500%;
+}
+
+#sub{
+    margin-top: 0%;
+    margin-bottom: 0%;
+    font-size: 300%;
+    color: #BEBEBE;
+}
+
+#instruction
+{
+    margin-top: 15%;
+}
+#controller {
+    font-size: 600%;
     padding: 1%;
-    color: #64C7FA;
+    color: rgb(143, 143, 143);
     background-color: Transparent;
     background-repeat:no-repeat;
     border: none;
@@ -50,32 +69,41 @@ body{
     overflow: hidden;
     outline:none;
     border-width: thin; 
-    border-color: #64C7FA;
+    /* border-color: #64C7FA; */
 }
 
-
-#btn_number:hover{
-    font-size: 700%;
-    color: rgb(0, 145, 218);
+#controller:hover{
+    font-size: 600%;
+    color: rgb(70, 70, 70);
 }
 
-#btn{
-    margin-top: 3%; 
-}
-/* 
-#state_two
+.form-control
 {
-    background-color: Transparent;
-    background-repeat:no-repeat;
-    border-width: thin; 
-    border-color: #64C7FA;
-    cursor:pointer;
-    overflow: hidden;
-    outline:none;
-} */
+    min-height: 41px;
+    box-shadow: 0 10px 20px 0 rgba(227, 231, 255, 0.25);
+    border-radius: 3px;
+    border-color: rgb(228, 227, 227);
+    background: #ffffff;    
+    border-radius: 15px;
+    color: #BEBEBE;
+}
 
+.form-group
+{
+    width: 30%;
+    margin-left: 35%;
+}
 
+.form-group p, label
+{
+    font-size: 180%;
+}
 
+.form-group label
+{
+    font-size: 180%;
+    color: rgb(151, 151, 151);
+}
 
 /* extensions------------------------------------------------- */
 
