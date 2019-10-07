@@ -35,11 +35,12 @@
 <body>
     <div class = "header" id = "state_info">
         <h1>Moderator View</h1>
-        <h2><?php 
-        echo "P: ".$_SESSION['P_state'];
-        echo "\n"; 
-        echo "O: ".$_SESSION['O_state'];
+        <!-- <h2><?php 
+        // echo "P State: ".$_SESSION['P_state'];
         ?></h2>
+        <h2><?php 
+        // echo "O State: ".$_SESSION['O_state'];
+        ?></h2> -->
     </div>
     <form action="" method = "post">
     <div class = "content form-group" id = "instruction">
