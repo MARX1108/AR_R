@@ -1,4 +1,5 @@
 body{
+    font-family: noyh_bold;
     background-color: #F4F9FD;    
     font-family: noyh_bold;
     color: #A1DFFF;
@@ -6,13 +7,14 @@ body{
 
 .header
 {
+    font-family: noyh_bold;
     text-align: center;
     margin-top: 2%;
 }
 
 .header h1, h2
 {
-    font-family: NoyhGeometricSlim-Bold;
+    font-family: noyh_bold;
     font-size: 300%;
     color: #A1DFFF;
     letter-spacing: 0;
@@ -20,6 +22,7 @@ body{
 
 .content
 {
+    font-family: noyh_bold;
     text-align: center;
     margin-top: 15%;
 }
@@ -27,7 +30,7 @@ body{
 .content p
 {
 
-
+    font-family: noyh_bold;
     text-align: left;
     display: inline-block;
     font-size: 400%;

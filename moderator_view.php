@@ -2,10 +2,19 @@
 <html>
 <?php
     session_start();
-    $_SESSION["P_state"] = 4;
-    $_SESSION['O_state'] = 4;
-    $_SESSION['trial_state'] = 0;
-    $_SESSION['instruction_pointer'] = "Please wait for instructions!"
+    if (!isset($_SESSION["P_state"]))
+    {
+        $_SESSION["P_state"] = 4;
+    }
+    if (!isset($_SESSION["O_state"]))
+    {
+        $_SESSION["O_state"] = 4;
+    }
+    if (!isset($_SESSION["trial_state"]))
+    {
+        $_SESSION["trial_state"] = 0;
+    }
+
 ?>
 
 <head>
@@ -47,7 +56,6 @@
                     }
 
                     if (isset($_POST['reset'])) {
-                        start();    
                         $_SESSION["P_state"] = 0;
                         $_SESSION['O_state'] = 0;
                     }
@@ -58,27 +66,30 @@
                         $_SESSION['O_state'] = 4;
                     }
 
-
-                    function start()
-                    {
-                        $i = 0;
-                        while ( $i < 3)
-                        {
-                            $now = time();
-                            $_SESSION["time"] = $now;
-
-                            if (!isset($_SESSION['last_game_time'])
-                            || (time() - $_SESSION['last_game_time']) > 45) {
-
-                            // code to award points here
-
-                            $_SESSION['last_game_time'] = time();
-                            }
-
-
-                            $i = $i+1;
+                    if(isset($_POST['action']) && !empty($_POST['action'])) {
+                        $action = $_POST['action'];
+                        switch($action) {
+                            case 'test' : test();break;
+                            case 'observer': observer();break;
+                            // ...etc...
                         }
                     }
+                    function test()
+                    {
+                        if ($_SESSION["P_state"] < 3)
+                        {
+                            $_SESSION["P_state"] = $_SESSION["P_state"] + 1;
+                        }
+                        
+                    }
+                    function observer()
+                    {
+                        if ($_SESSION["O_state"] < 4)
+                        {
+                            $_SESSION["O_state"] = $_SESSION["O_state"] + 1;
+                        }
+                    }
+
     ?>
 
 </body>
