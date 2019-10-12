@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php
-    session_start();
+        include("connection.php")
 ?>
 
 <head>
