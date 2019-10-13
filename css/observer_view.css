@@ -62,23 +62,58 @@ body{
 #btn{
     margin-top: 3%; 
 }
-/* 
-#state_two
+
+#state_three_question
 {
-    background-color: Transparent;
-    background-repeat:no-repeat;
-    border-width: thin; 
-    border-color: #64C7FA;
-    cursor:pointer;
-    overflow: hidden;
-    outline:none;
-} */
+    margin-top: 0%;
+    font-size: 50%;
+}
 
+#state_three
+{
+    margin-top: 0%;
+    margin-bottom: 0%;
+    width: 100%; 
+    margin-left: 27%;
+}
 
+.container {
+    display: inline;
+    position: relative;
+    padding-left: 50px;
+    padding-right: 50px;
+    cursor: pointer;
+    
+    user-select: none;
+  }
 
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 30px;
+    background-color: #64C7FA;
+    border-radius: 50%;
+  }
+
+  .container:hover input ~ .checkmark {
+    background-color: #64C7FA;
+  }
+
+  .container input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
 
 /* extensions------------------------------------------------- */
-
 
 @font-face {
     font-family: 'noyh_bold';

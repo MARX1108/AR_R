@@ -67,10 +67,6 @@
             {
                 echo "<p> Click ENTER when you have made your choice <p>";
             }
-            else if ($_SESSION["O_state"] == 3)
-            {
-                echo "<p> How confident are you about your selection? <p> "; 
-            }
             else if ($_SESSION["O_state"] == 4)
             {
                 echo "<p> Round 1 Finished<p> "; 
@@ -104,13 +100,71 @@
             }
 
         ?>
-    </div>
+        </p>
 
-    <!-- <div class="btn-group">
-        <button>Apple</button>
-        <button>Samsung</button>
-        <button>Sony</button>
-    </div> -->
+        <p id = "state_three_question">
+            <?php
+            if ($_SESSION["O_state"] == 3)
+            { 
+                echo "<p> How confident are you about your selection? <p> "; 
+            }
+            ?>
+        </p>
+
+        <p id = "state_three">
+            <?php
+            if ($_SESSION["O_state"] == 3)
+            {
+                echo "
+                <label class='container'>
+                    <input type='checkbox'>
+                    <span class='checkmark'></span>
+                </label>
+
+                <label class='container'>
+                    <input type='checkbox'>
+                    <span class='checkmark'></span>
+                </label>
+
+                <label class='container'>
+                    <input type='checkbox'>
+                    <span class='checkmark'></span>
+                </label>
+
+                <label class='container'>
+                    <input type='checkbox'>
+                    <span class='checkmark'></span>
+                </label>
+
+                <label class='container'>
+                    <input type='checkbox'>
+                    <span class='checkmark'></span>
+                </label>
+
+                <label class='container'>
+                    <input type='checkbox'>
+                    <span class='checkmark'></span>
+                </label>
+
+                <label class='container'>
+                    <input type='checkbox'>
+                    <span class='checkmark'></span>
+                </label>
+                "; 
+            }
+            ?>
+        </p>
+
+        <p id = "state_two_selection">
+            <?php            
+            if ($_SESSION["O_state"] == 3)
+            {
+                echo "Not at All Confident" ; 
+            }
+            ?>
+        </p>
+
+    </div>
     
 </body>
 </html>
