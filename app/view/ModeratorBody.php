@@ -45,13 +45,16 @@
                     }
                     function test()
                     {
-                        $select = "SELECT `P_step` FROM `state`";
+                        $select = "SELECT `p_state` FROM `state`";
                         $con = mysqli_connect("localhost", "root", "", "AR_R") or die("Connection was not established");
                         
-                        $selecting_pstep = mysqli_query($con, $select);
-                        while ($row = $selecting_pstep->fetch_assoc()) {
-                            $db_p_step = $row["P_step"]; 
-                        }
+                        $result = mysqli_query($con, $select);
+                        // while ($row = $result->fetch_assoc()) {
+                        //     $db_p_step = $row["p_state"]; 
+                        // }
+                        while($row = mysqli_fetch_assoc($result)) {
+                            // echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+                        };
 
                         $newvalue = $db_p_step+1; 
 

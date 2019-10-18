@@ -5,11 +5,9 @@
     <!-- <input type="text" id="txt"/> -->
     <h1 id="demo"></h1>
 
-    <div class = "header" id = "state_info">
+    <div class = "header" id = "state">
         <h1>Observer View</h1>
-        <h2><?php 
-        echo "Step ".$_SESSION['O_state'];
-        ?></h2>
+        <h2></h2>
     </div>
     <div class = "content" id = "instruction">
         <!-- <p>Please wait for instructions</p> -->
