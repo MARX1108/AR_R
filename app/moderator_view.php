@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php
+<!-- <?php
     session_start();
     if (!isset($_SESSION["P_state"]))
     {
@@ -31,7 +31,7 @@
         // setInterval(page_refresh, 1000);
     </script>
 
-</head>
+</head> -->
 <body>
     <div class = "header" id = "state_info">
         <h1>Moderator View</h1>
