@@ -14,7 +14,7 @@
     {
         $_SESSION["trial_state"] = 0;
     }
-
+    
 ?>
 
 <head>
