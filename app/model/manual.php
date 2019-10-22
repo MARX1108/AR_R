@@ -2,49 +2,33 @@
 
 include_once("content.php");
 
-$view = $_POST['state'];
-
+$view = $_POST['view'];
+$state_number = $_POST['state_number'];
 
 if (strcmp($view, "pointer") == 0)
 {
-    $newvalue = pstate();
-    $content = p_view( $newvalue);
+    pstate($state_number);
+    $content = p_view( $state_number);
 }
 else
 {
-    $newvalue = ostate();
-    $content = o_view( $newvalue);
+    ostate($state_number);
+    $content = o_view($state_number);
 }
 
 echo json_encode(
-    array("state" => $newvalue, "content" => $content)
+    array("state" => $state_number, "content" => $content)
 );
 
 // echo json_encode(array("a" => "valueA", "b" => "valueB"));
 
 
-
-
-
-
-
-function pstate()
+function pstate($newvalue)
 {
 
     $select = "SELECT `p_state` FROM `state`";
     $con = mysqli_connect("localhost", "root", "", "AR_R") or die("Connection was not established");
     
-    $result = mysqli_query($con, $select);
-    while ($row = $result->fetch_assoc()) {
-        $db_p_step = $row["p_state"]; 
-    }
-
-    $newvalue = $db_p_step + 1; 
-    if ($newvalue > 3)
-    {
-        $newvalue = 0;
-    }
-
     $update="UPDATE `state` SET `p_state`= '$newvalue' " ; 
     $updating = mysqli_query($con, $update);
 
@@ -52,30 +36,15 @@ function pstate()
 }
 
 
-function ostate()
+function ostate($newvalue)
 {
-    $select = "SELECT `o_state` FROM `state`";
+    
+    $select = "SELECT `p_state` FROM `state`";
     $con = mysqli_connect("localhost", "root", "", "AR_R") or die("Connection was not established");
     
-    $result = mysqli_query($con, $select);
-    while ($row = $result->fetch_assoc()) {
-        $db_p_step = $row["o_state"]; 
-    }
-
-    $newvalue = $db_p_step+1; 
-    if ($newvalue > 4)
-    {
-        $newvalue = 1;
-    }
-
-    
-    $lock = lock();
-    if ($lock == 0)
-    {
-        $newvalue = 1;
-    }
     $update="UPDATE `state` SET `o_state`= '$newvalue' " ; 
     $updating = mysqli_query($con, $update);
+
     return $newvalue;
 }
 

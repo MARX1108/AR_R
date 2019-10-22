@@ -1,6 +1,6 @@
 body{
     font-family: noyh_bold;
-    background-color: #F4F9FD;    
+    background-color: #F4F9FD;
     font-family: noyh_bold;
     color: #A1DFFF;
 }
@@ -24,14 +24,14 @@ body{
 {
     font-family: noyh_bold;
     text-align: center;
-    
+
 }
 
 .content p
 {
-    margin-top: 15%;
+    margin-top: 12%;
     font-family: noyh_bold;
-    text-align: left;
+    text-align: center;
     display: inline-block;
     font-size: 400%;
     color: #64C7FA;
@@ -49,7 +49,7 @@ body{
     cursor:pointer;
     overflow: hidden;
     outline:none;
-    border-width: thin; 
+    border-width: thin;
     border-color: #64C7FA;
 }
 
@@ -60,7 +60,7 @@ body{
 }
 
 #btn{
-    margin-top: 3%; 
+    margin-top: 3%;
 }
 
 #state_three_question
@@ -73,8 +73,8 @@ body{
 {
     margin-top: 0%;
     margin-bottom: 0%;
-    width: 100%; 
-    margin-left: 27%;
+    width: 100%;
+    margin-left: 2%;
 }
 
 .container {
@@ -83,7 +83,7 @@ body{
     padding-left: 50px;
     padding-right: 50px;
     cursor: pointer;
-    
+
     user-select: none;
   }
 

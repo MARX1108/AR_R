@@ -4,12 +4,12 @@ include_once '../global.php';
 $nc = new NewsController();
 
 $nc->list();
-class NewsController {
+class NewsController 
+{
   public function list() 
   {
     include_once SYSTEM_PATH.'/view/PointerHeader.php';
-    include_once SYSTEM_PATH.'/view/PointerBody.php';
-    include_once SYSTEM_PATH.'/view/PointerFooter.php';
+    include_once SYSTEM_PATH.'/view/Body.php';
   }
 
 }

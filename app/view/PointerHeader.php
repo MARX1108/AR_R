@@ -15,80 +15,17 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" type = "text/css" href="../../public/css/pointer_view.css">
     <!-- <meta http-equiv="refresh" content="1" > -->
-    <script  src = "../../public/js/require.js"></script>
+    <!-- <script  src = "../../public/js/require.js"></script> -->
     <script  src = "../../public/js/jquery-3.4.1.js"></script>
     <script src="<?= BASE_URL ?>/public/js/jquery-3.4.1.min.js"></script>
-	<script src="<?= BASE_URL ?>/public/js/scripts.js"></script>
-    <script>
-        
-        var step = 0;
-        $(document).ready( function()
-        {
-            state_inquery();
-        }
-        )
-        $(document).on("keypress", function(e){
-            if(e.which == 13)
-            {   
-                state_inquery();
-            }
-        })
-
-        function callback(output)
-        {
-            step = parseInt(output);
-            append(step);
-        }
-
-        function append(step)
-        {
-            $('#state > h2').html("Step " + step);
-            if (step == 0)
-            {
-                $('#instruction').html("<p id = 'main'> content 0  \n </p>");
-            }
-            else if (step == 1)
-            {
-                $('#instruction').html("<p id = 'main'> content 1 \n </p>");
-            }
-            else
-            {
-                $('#instruction').html("<p id = 'main'> content 2 \n </p>");
-            }
-        }
-
-        function state_inquery() {
-         return $.ajax(
-                            { url: '../model/count.php',
-                            data: {state: 'pointer'},
-                            method: 'post',
-                            success: callback
-                            }
-                );
-        }
-
-
-        function content_inquery() {
-         return $.ajax(
-                            { url: '../model/count.php',
-                            data: {view: 'pointer'},
-                            method: 'post',
-                            success: callback
-                            }
-                );
-        }
-
-                
-    </script>
+	<!-- <script src="<?= BASE_URL ?>/public/js/scripts.js"></script> -->
+    <script src="../../public/js/pointer.js"></script>
 </head>
 
 <body>
     <div id='div_session_write'> 
 
     </div>
-    <!-- <input type="text" id="txt"/> -->
-    <h1 id="demo"></h1>
-
     <div class = "header" id = "state">
         <h1>Pointer View</h1>
         <h2></h2>

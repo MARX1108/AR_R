@@ -7,8 +7,7 @@ class NewsController {
   public function list() 
   {
     include_once SYSTEM_PATH.'/view/ObserverHeader.php';
-    include_once SYSTEM_PATH.'/view/ObserverBody.php';
-    include_once SYSTEM_PATH.'/view/ObserverFooter.php';
+    include_once SYSTEM_PATH.'/view/Body.php';
   }
 
 }
