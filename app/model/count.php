@@ -40,9 +40,9 @@ function pstate()
     }
 
     $newvalue = $db_p_step + 1; 
-    if ($newvalue > 3)
+    if ($newvalue > 4)
     {
-        $newvalue = 0;
+        $newvalue = 1;
     }
 
     $update="UPDATE `state` SET `p_state`= '$newvalue' " ; 

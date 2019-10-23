@@ -1,21 +1,5 @@
 <!DOCTYPE html>
 <html>
-<?php
-    session_start();
-    if (!isset($_SESSION["P_state"]))
-    {
-        $_SESSION["P_state"] = 4;
-    }
-    if (!isset($_SESSION["O_state"]))
-    {
-        $_SESSION["O_state"] = 4;
-    }
-    if (!isset($_SESSION["trial_state"]))
-    {
-        $_SESSION["trial_state"] = 0;
-    }
-
-?>
 
 <head>
     <title>Moderator</title>
@@ -28,9 +12,50 @@
     <script src="<?= BASE_URL ?>/public/js/jquery-3.4.1.min.js"></script>
 	<script src="<?= BASE_URL ?>/public/js/scripts.js"></script>
     <link rel="stylesheet" type = "text/css" href="../../public/css/moderator_view.css">
-
     <script>
-        // setInterval(page_refresh, 1000);
-    </script>
+    
+        function callback(output) {
+            // alert(output);
+            console.log(output);
+        }
 
+        function control(command) {
+            // alert("test");
+        $.ajax(
+                    {
+                        url: '../model/control.php',
+                        data: {command:command},
+                        method: 'post',
+                        dataType: 'json',
+                        success: callback,
+                        error: function(xhr, status, error) 
+                        {
+                            alert(xhr.responseText);
+                        }
+                    }
+                );
+        }
+        
+    
+    
+    
+    
+    </script>
 </head>
+
+<body>
+    <div class = "header" id = "state_info">
+        <h1>Moderator View</h1>
+    </div>
+    <form action="" method = "post">
+    <div class = "content" id = "instruction">
+                <button type = "submit" id = "controller" name = 'start' onclick="control('start')"> Start </button>
+                <button type = "submit" id = "controller"name = 'reset' onclick="control('reset')"> Reset </button>
+                <button type = "submit" id = "controller" name = 'stop'> Stop </button>
+    </div>
+    </form>
+
+
+
+</body>
+</html>

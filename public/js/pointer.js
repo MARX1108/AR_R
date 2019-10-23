@@ -1,7 +1,8 @@
 $(document).ready(function () {
     sync();
-    $('#state > h2').html("Step Locked");
-    $('#instruction').html("<p id = 'main'> please waiting for instruction </p>");
+    state_inquery();
+    // $('#state > h2').html("Step Locked");
+    // $('#instruction').html("<p id = 'main'> please waiting for instruction </p>");
 });
 
 $(document).on("keypress", function (e) {
@@ -21,10 +22,9 @@ function append(step, string) {
     // alert(string);
     $('#instruction').html(string);
 
-    if(step == 0)
+    if(step == 1)
     {
         countdown(5);
-
     }
 }   
 
@@ -74,10 +74,14 @@ function sync() {
                 setTimeout(sync, 1000);
                 var ostate = parseInt(output.ostate);
                 var pstate = parseInt(output.pstate);
-                if(ostate == 2) setpage("pointer", 3);
-                if(ostate == 4 && pstate != 0)
+                if(pstate == 0) setpage("pointer", pstate);
+                // if(pstate == 1) setpage("pointer", pstate);
+                if(pstate == 2 && ostate != 2) setpage("pointer", 2);
+
+                if(ostate == 2) setpage("pointer", 4);
+                if(ostate == 4 && pstate != 1)
                 {                    
-                    setpage("pointer", 0);
+                    setpage("pointer", 1);
                 } 
             },
             error: function (xhr, status, error) {
@@ -104,7 +108,7 @@ var x = setInterval(function()
     // If the count down is finished, write some text
     if (--timer < 0) {
       clearInterval(x);
-      setpage("pointer", 1);
+      setpage("pointer", 2);
     }
   }, 1000);
 }

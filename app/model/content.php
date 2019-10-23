@@ -1,16 +1,24 @@
 <?php
 
+
+
+
+
 function p_view($state)
 {
     if ($state == 0)
     {
-        return "<p id = 'main'> count down in <span id='time'>5</span> seconds...  \n </p>";
+        return "<p id = 'main'> please wait for instruction</p>";
     }
     else if ($state == 1)
     {
-        return "<p id = 'main'> #16 </br> press the key when you finish pointing</p>";
+        return "<p id = 'main'> count down in <span id='time'>5</span> seconds...</p>";
     }
     else if ($state == 2)
+    {
+        return "<p id = 'main'> #16 </br> press the key when you finish pointing</p>";
+    }
+    else if ($state == 3)
     {
         return "<p id = 'main'> please hold your hands </p>";
     }
@@ -23,8 +31,11 @@ function p_view($state)
 
 function o_view($state)
 {
-    
-    if ($state == 1)
+    if ($state == 0)
+    {
+        return "<p id = 'main'> please wait for instruction</p>";
+    }
+    else if ($state == 1)
     {
         return "<p> Look at the table 
         </br> observe which number is the one pointer point at 

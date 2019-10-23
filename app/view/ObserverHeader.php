@@ -14,10 +14,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" type = "text/css" href="../../public/css/observer_view.css">
     <!-- <meta http-equiv="refresh" content="1" > -->
-    <script  src = "../../public/js/require.js"></script>
     <script  src = "../../public/js/jquery-3.4.1.js"></script>
     <script src="<?= BASE_URL ?>/public/js/jquery-3.4.1.min.js"></script>
-	<script src="<?= BASE_URL ?>/public/js/scripts.js"></script>
     <!-- <script  src = "../../public/js/pointer.js"></script> -->
 
     <script src = "../../public/js/observer.js"> </script>
