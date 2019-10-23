@@ -14,6 +14,7 @@ $(document).on("keypress", function (e) {
 function callback(output) {
 
     step = parseInt(output.state);
+    trial = parseInt(output.trial_number);
 
     string = output.content;
     append(step, string);
@@ -22,8 +23,8 @@ function callback(output) {
     }
 }
 
-function append(step, string) {
-    $('#state > h2').html("Step " + step);
+function append(step, string, trial) {
+    $('#state > h2').html("Step " + step + " Trial " + trial);
     $('#instruction').html(string);
 }
 

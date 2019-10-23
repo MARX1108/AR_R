@@ -5,6 +5,13 @@ include_once("content.php");
 $view = $_POST['view'];
 $state_number = $_POST['state_number'];
 
+$con = mysqli_connect("localhost", "root", "", "AR_R") or die("Connection was not established");
+$trial_number = "SELECT `trial_number` FROM `state`";
+
+$result = mysqli_query($con, $trial_number);
+$t = $result->fetch_assoc();
+$result = $t["trial_number"]; 
+
 if (strcmp($view, "pointer") == 0)
 {
     pstate($state_number);
@@ -17,7 +24,7 @@ else
 }
 
 echo json_encode(
-    array("state" => $state_number, "content" => $content)
+    array("state" => $state_number, "content" => $content, "trial_number" => $result)
 );
 
 // echo json_encode(array("a" => "valueA", "b" => "valueB"));

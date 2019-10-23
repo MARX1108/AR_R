@@ -23,14 +23,14 @@
             // alert("test");
         $.ajax(
                     {
-                        url: '../model/control.php',
+                        url: '../model/moderator.php',
                         data: {command:command},
                         method: 'post',
                         dataType: 'json',
                         success: callback,
                         error: function(xhr, status, error) 
                         {
-                            alert(xhr.responseText);
+                            // alert(xhr.responseText);
                         }
                     }
                 );
@@ -51,7 +51,7 @@
     <div class = "content" id = "instruction">
                 <button type = "submit" id = "controller" name = 'start' onclick="control('start')"> Start </button>
                 <button type = "submit" id = "controller"name = 'reset' onclick="control('reset')"> Reset </button>
-                <button type = "submit" id = "controller" name = 'stop'> Stop </button>
+                <!-- <button type = "submit" id = "controller" name = 'stop'> Stop </button> -->
     </div>
     </form>
 

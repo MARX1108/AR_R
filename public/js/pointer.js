@@ -12,13 +12,18 @@ $(document).on("keypress", function (e) {
 });
 
 function callback(output) {
+    
     step = parseInt(output.state);
+    trial = parseInt(output.trial_number);
+
+    // alert(trial);
     string = output.content;
-    append(step, string);
+    append(step, string, trial);
 }
 
-function append(step, string) {
-    $('#state > h2').html("Step " + step);
+function append(step, string, trial) 
+{
+    $('#state > h2').html("Step " + step + " Trial " + trial);
     // alert(string);
     $('#instruction').html(string);
 
@@ -80,8 +85,11 @@ function sync() {
 
                 if(ostate == 2) setpage("pointer", 4);
                 if(ostate == 4 && pstate != 1)
-                {                    
+                {   
+                    // alert("test");
+                    increment_trial_count('T1');                 
                     setpage("pointer", 1);
+
                 } 
             },
             error: function (xhr, status, error) {
@@ -89,7 +97,25 @@ function sync() {
             }
         });
 }
-
+function increment_trial_count(instruction)
+{
+    $.ajax(
+        {
+        url: '../model/trial_number_count.php',
+        data: {
+            instruction: instruction
+        },
+        method: 'post',
+        dataType: 'json',
+        success: function(output)
+        {
+            // $('#state > h2').append(" Trial " + output.trial_number);
+        },
+        error: function (xhr, status, error) {
+            alert(xhr.responseText);
+        }
+    });
+}
 function countdown(time)
 {
     var timer = time, seconds;
@@ -104,7 +130,9 @@ var x = setInterval(function()
 
 
     // Display the result in the element with id="demo"
-    document.getElementById("time").innerHTML = seconds;
+
+        document.getElementById("time").innerHTML = seconds;
+
     // If the count down is finished, write some text
     if (--timer < 0) {
       clearInterval(x);
