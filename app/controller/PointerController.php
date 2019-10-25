@@ -13,3 +13,5 @@ class NewsController
   }
 
 }
+
+echo "test"; 

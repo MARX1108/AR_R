@@ -3,9 +3,20 @@
 
 
 
-
 function p_view($state)
 {
+
+    $con = mysqli_connect("localhost", "root", "", "AR_R") or die("Connection was not established");
+    $trial_number = "SELECT `trial_number` FROM `state`";
+    $result = mysqli_query($con, $trial_number);
+    $t = $result->fetch_assoc();
+    $result = $t["trial_number"]; 
+
+    $test_number = "SELECT `Set_2` FROM `test_number` WHERE trial_number = '$result'";
+    $result = mysqli_query($con, $test_number);
+    $t = $result->fetch_assoc();
+    $result = $t["Set_2"]; 
+
     if ($state == 0)
     {
         return "<p id = 'main'> please wait for instruction</p>";
@@ -16,7 +27,7 @@ function p_view($state)
     }
     else if ($state == 2)
     {
-        return "<p id = 'main'> #16 </br> press the key when you finish pointing</p>";
+        return "<p id = 'main'> #$result</br> press the key when you finish pointing</p>";
     }
     else if ($state == 3)
     {

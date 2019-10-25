@@ -16,8 +16,18 @@ function callback(output) {
     step = parseInt(output.state);
     trial = parseInt(output.trial_number);
 
+    if (step == 2)
+    {
+        // alert("test");
+        send_data('T3'); 
+    }
+    else if (step == 3)
+    {
+        send_data('T4'); 
+    }
+
     string = output.content;
-    append(step, string);
+    append(step, string, trial);
     if (step == 4) {
         countdown(5);
     }
@@ -38,7 +48,7 @@ function state_inquery() {
         dataType: 'json',
         success: callback,
         error: function (xhr, status, error) {
-            alert(xhr.responseText);
+            // alert(xhr.responseText);
         }
     });
 }
@@ -54,11 +64,29 @@ function setpage(view, state) {
         dataType: 'json',
         success: callback,
         error: function (xhr, status, error) {
-            alert(xhr.responseText);
+            // alert(xhr.responseText);
         }
     });
 }
-
+function send_data(data)
+{
+    $.ajax(
+        {
+        url: '../model/send_data.php',
+        data: {
+            data:data
+        },
+        method: 'post',
+        dataType: 'json',
+        success: function(output)
+        {
+            // $('#state > h2').append(" Trial " + output.trial_number);
+        },
+        error: function (xhr, status, error) {
+            // alert(xhr.responseText);
+        }
+    });
+}
 function countdown(time) {
     var timer = time,
         seconds;
@@ -102,7 +130,7 @@ function sync() {
 
         },
         error: function (xhr, status, error) {
-            alert(xhr.responseText);
+            // alert(xhr.responseText);
         }
     });
 }

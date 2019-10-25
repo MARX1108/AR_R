@@ -12,9 +12,13 @@ $(document).on("keypress", function (e) {
 });
 
 function callback(output) {
-    
     step = parseInt(output.state);
     trial = parseInt(output.trial_number);
+
+    if (step == 2)
+    {
+        send_data('T2'); 
+    }
 
     // alert(trial);
     string = output.content;
@@ -79,31 +83,32 @@ function sync() {
                 setTimeout(sync, 1000);
                 var ostate = parseInt(output.ostate);
                 var pstate = parseInt(output.pstate);
-                if(pstate == 0) setpage("pointer", pstate);
+                if(pstate == 0) {
+                    setpage("pointer", pstate);
+                }
+
                 // if(pstate == 1) setpage("pointer", pstate);
-                if(pstate == 2 && ostate != 2) setpage("pointer", 2);
+                // if(pstate == 2 && ostate != 2) setpage("pointer", 2);
 
                 if(ostate == 2) setpage("pointer", 4);
-                if(ostate == 4 && pstate != 1)
+                if(ostate == 4 && pstate == 4)
                 {   
-                    // alert("test");
-                    increment_trial_count('T1');                 
                     setpage("pointer", 1);
-
+                    send_data('date'); 
                 } 
             },
             error: function (xhr, status, error) {
-                alert(xhr.responseText);
+                // alert(xhr.responseText);
             }
         });
 }
-function increment_trial_count(instruction)
+function increment_trial_count()
 {
     $.ajax(
         {
         url: '../model/trial_number_count.php',
         data: {
-            instruction: instruction
+            
         },
         method: 'post',
         dataType: 'json',
@@ -113,6 +118,25 @@ function increment_trial_count(instruction)
         },
         error: function (xhr, status, error) {
             alert(xhr.responseText);
+        }
+    });
+}
+function send_data(data)
+{
+    $.ajax(
+        {
+        url: '../model/send_data.php',
+        data: {
+            data:data
+        },
+        method: 'post',
+        dataType: 'json',
+        success: function(output)
+        {
+            // $('#state > h2').append(" Trial " + output.trial_number);
+        },
+        error: function (xhr, status, error) {
+            // alert(xhr.responseText);
         }
     });
 }
@@ -135,8 +159,11 @@ var x = setInterval(function()
 
     // If the count down is finished, write some text
     if (--timer < 0) {
-      clearInterval(x);
-      setpage("pointer", 2);
+        
+        clearInterval(x);
+        increment_trial_count('');        
+        setpage("pointer", 2);
+        send_data('T1'); 
     }
   }, 1000);
 }
