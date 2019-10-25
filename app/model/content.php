@@ -19,23 +19,23 @@ function p_view($state)
 
     if ($state == 0)
     {
-        return "<p id = 'main'> please wait for instruction</p>";
+        return "<p id = 'main'> When instructed to do so </br> Press ENTER to start</p>";
     }
     else if ($state == 1)
     {
-        return "<p id = 'main'> count down in <span id='time'>5</span> seconds...</p>";
+        return "<p id = 'main'> 5 seconds count down </br> The number will show up in <span id='time'>5</span> seconds...</p>";
     }
     else if ($state == 2)
     {
-        return "<p id = 'main'> #$result</br> press the key when you finish pointing</p>";
+        return "<p id = 'main'> #$result</br> Press the key when you finish pointing</p>";
     }
     else if ($state == 3)
     {
-        return "<p id = 'main'> please hold your hands </p>";
+        return "<p id = 'main'> Please hold your hands </p>";
     }
     else
     {
-        return "<p id = 'main'> please pull back your hands </br>  round 1 finished \n </p>";
+        return "<p id = 'main'> Please pull back your hands </br> Current trial finished </p>";
     }
 
 }
@@ -44,12 +44,12 @@ function o_view($state)
 {
     if ($state == 0)
     {
-        return "<p id = 'main'> please wait for instruction</p>";
+        return "<p id = 'main'> When instructed to do so </br> Press ENTER to start</p>";
     }
     else if ($state == 1)
     {
         return "<p> Look at the table 
-        </br> observe which number is the one pointer point at 
+        </br> See which number is the cube that the pointer is pointing at
         </br> Click ENTER when you have made your choice
         <p>";
     }
