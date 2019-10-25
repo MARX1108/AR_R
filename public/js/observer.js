@@ -123,10 +123,8 @@ function sync() {
         {
             setTimeout(sync, 1000);
             var ostate = parseInt(output.ostate);
-            if(ostate == 0) setpage("observer", ostate);
-            if(ostate == 1) setpage("observer", ostate);
-
-
+            if(ostate == 0) setpage("observer", 0);
+            // if(ostate == 1) setpage("observer", ostate);
 
         },
         error: function (xhr, status, error) {

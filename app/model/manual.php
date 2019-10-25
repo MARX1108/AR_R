@@ -10,7 +10,7 @@ $trial_number = "SELECT `trial_number` FROM `state`";
 
 $result = mysqli_query($con, $trial_number);
 $t = $result->fetch_assoc();
-$result = $t["trial_number"]; 
+$trial_number = $t["trial_number"]; 
 
 if (strcmp($view, "pointer") == 0)
 {
@@ -24,7 +24,7 @@ else
 }
 
 echo json_encode(
-    array("state" => $state_number, "content" => $content, "trial_number" => $result)
+    array("state" => $state_number, "content" => $content, "trial_number" => $trial_number)
 );
 
 // echo json_encode(array("a" => "valueA", "b" => "valueB"));
