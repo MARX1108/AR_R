@@ -1,55 +1,94 @@
 $(document).ready(function () {
     sync();
     setpage("pointer", 0);
+    step = parseInt($('#step').text());
+
     // state_inquery();
 });
 
 $(document).on("keypress", function (e) {
     if (e.which == 13) {
-        state_inquery();
+        // state_inquery();
+        controller();
     }
 });
 
-function callback(output) {
-    step = parseInt(output.state);
-    trial = parseInt(output.trial_number);
-    string = output.content;
-
-    // console.log("trial number: ", trial);
-    if (step == 1) {
-        trial = trial + 1;
-    }
-    if (step == 2) {
-        send_data('T1');
-    }
-    if (step == 3) {
-        send_data('T2');
-    }
-    append(step, string, trial);
-    if (step == 1) {
-        countdown(5);
-    }
-}
-
-function append(step, string, trial) {
-    $('#state > h2').html("Step " + step + " Trial " + trial);
-    $('#instruction').html(string);
-}
-
-function state_inquery() {
+function sync() {
     $.ajax({
-        url: '../model/count.php',
+        url: '../model/sync.php',
         data: {
-            state: 'pointer'
+            instruction: ' '
         },
         method: 'post',
         dataType: 'json',
-        success: callback,
+        success: function (output) 
+        {
+            if (output.pstate == 1)
+            {
+                countdown(3);
+                setpage("pointer", 2);
+                setTimeout(function(){sync();}, 4000);
+            }
+            else
+            {
+                setTimeout(function(){sync();}, 100);
+            }
+            
+
+            // if(output.pstate == 3 && output.ostate != 2) 
+            // {
+            //     setpage("observer", 2);
+            // }
+
+            // if ( output.pstate != 4 && output.ostate == 3)
+            // {
+            //     setpage("pointer", 4);
+            // }
+
+
+            
+
+            $('#trial').html(output.trial_number);
+            $('#step').html(output.pstate);
+            $('#observer_step').html(output.ostate);
+            updateContent(output.pstate);
+
+        },
         error: function (xhr, status, error) {
-            // alert(xhr.responseText);
+            alert(xhr.responseText);
         }
     });
 }
+
+function controller()
+{
+    var step = parseInt($('#step').text());
+    var trial = parseInt($('#trial').text());
+    var observer_step = parseInt($('#observer_step').text());
+
+    if (step == 0) 
+    {
+        setpage("pointer", 1);
+    }
+
+    else if (step == 2 && observer_step == 1) 
+    {
+        // send_data('T1');
+        setpage("pointer", 3);
+        setpage("observer", 2);
+    }
+
+    // else if (step == 3) 
+    // {
+    //     // send_data('T2');
+    //     setpage("pointer", 4);
+    // }
+
+    console.log(step);
+    // console.log(trial);
+    // console.log(observer_step);
+}
+
 
 function setpage(view, state) {
     $.ajax({
@@ -60,39 +99,34 @@ function setpage(view, state) {
         },
         method: 'post',
         dataType: 'json',
-        success: callback,
+        // success: callback,
         error: function (xhr, status, error) {
-            // alert(xhr.responseText);
+            alert(xhr.responseText);
         }
     });
 }
 
-function sync() {
+
+function updateContent(state)
+{
     $.ajax({
-        url: '../model/sync.php',
+        url: '../model/content.php',
         data: {
-            instruction: ' '
+            fetchContent: 'true',
+            clientView:'pointer',
+            state:state
         },
         method: 'post',
         dataType: 'json',
         success: function (output) {
-            setTimeout(function(){sync();}, 100);
-            var ostate = parseInt(output.ostate);
-            var pstate = parseInt(output.pstate);
-            console.log("pstate:  ", pstate);
-            console.log("ostate:  ", ostate);
-
-            if (pstate == 0) setpage("pointer", 0);
-            if (ostate == 2) setpage("pointer", 4);
-            if ((ostate == 4 &&
-                    pstate == 4) || (ostate == 4 &&
-                    pstate == 3)) setpage("pointer", 1);
+            $('#instruction').html(output.content);
         },
         error: function (xhr, status, error) {
-            // alert(xhr.responseText);
+            alert(xhr.responseText);
         }
     });
 }
+
 
 function increment_trial_count() {
     $.ajax({
@@ -103,10 +137,19 @@ function increment_trial_count() {
         method: 'post',
         dataType: 'json',
         success: function (output) {
-
+            // alert(output.test);
+            console.log(
+                "experiment_id: ", output.experiment_id,
+                " pointer_ID: ", output.pointer_ID,
+                " observer_ID: ", output.observer_ID,
+                " virtual_type: ", output.virtual_type,
+                " spatial_type: ", output.spatial_type,
+                " rehearsal: ", output.rehearsal,
+                " testing_number_set: ", output.testing_number_set
+            );
         },
         error: function (xhr, status, error) {
-            // alert(xhr.responseText);
+            alert(xhr.responseText);
         }
     });
 }
@@ -137,11 +180,10 @@ function countdown(time) {
         seconds = seconds < 10 ? seconds : seconds;
         document.getElementById("time").innerHTML = seconds;
         if (timer == 2) increment_trial_count();
-
+        console.log(seconds);
         if (--timer < 0) {
             clearInterval(x);
-            // send_data('T1');
-            setpage("pointer", 2);
+
         }
     }, 1000);
 }

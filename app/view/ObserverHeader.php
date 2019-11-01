@@ -30,6 +30,8 @@
     <h1 id="demo"></h1>
 
     <div class = "header" id = "state">
-        <h1>Observer View</h1>
-        <h2></h2>
+    <h1>Pointer View</h1>
+        <h2>Trial <a id = "trial"></a></h2>
+        <h2>Step <a id = "step"></a></h2>
+        <a id = "pointer_step" hidden></a>
     </div>

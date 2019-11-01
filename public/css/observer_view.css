@@ -40,8 +40,8 @@ body{
 }
 
 #btn_number {
-    font-size: 700%;
-    padding: 1%;
+    font-size: 500%;
+    padding: 0.5%;
     color: #64C7FA;
     background-color: Transparent;
     background-repeat:no-repeat;
@@ -55,7 +55,7 @@ body{
 
 
 #btn_number:hover{
-    font-size: 700%;
+    font-size: 500%;
     color: rgb(0, 145, 218);
 }
 

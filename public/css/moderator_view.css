@@ -90,8 +90,13 @@ p {
 
 .form-group
 {
-    width: 30%;
-    margin-left: 35%;
+    text-align: center;
+    width: 24%;
+    margin-left: 38%;
+}
+
+.form-control::placeholder { 
+    color: #BEBEBE;
 }
 
 .form-group p, label

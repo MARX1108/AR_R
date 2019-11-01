@@ -1,7 +1,19 @@
 <?php
 
+if(isset($_POST['fetchContent']))
+{
+    $state = $_POST['state'];
+    if($_POST['clientView'] == "pointer")
+    {
+        $content =  p_view($state);
+    }
+    else
+    {
+        $content =  o_view($state);
+    }
 
-
+    echo json_encode(array("content" => $content));
+}
 
 function p_view($state)
 {
@@ -48,78 +60,92 @@ function o_view($state)
     }
     else if ($state == 1)
     {
-        return "<p> Look at the table 
-        </br> See which number is the cube that the pointer is pointing at
-        </br> Click ENTER when you have made your choice
-        <p>";
+        return "<p>Waiting for instruction</p>";
     }
     else if ($state == 2)
     {
-        return "<div id = 'btn'>
-            <button id = 'btn_number'>#1</button>
-            <button id = 'btn_number'>#2</button>
-            <button id = 'btn_number'>#3</button>
-            <br>
-            <button id = 'btn_number'>#4</button>
-            <button id = 'btn_number'>#5</button>
-            <button id = 'btn_number'>#6</button>
-            <br>
-            <button id = 'btn_number'>#7</button>
-            <button id = 'btn_number'>#8</button>
-            <button id = 'btn_number'>#9</button>
-            </div>"; 
+        return "<p> Look at the table 
+        </br> See which number is the cube that the pointer is pointing at
+        </br> Click ENTER when you have made your choice
+        </p>";
+        
     }
     else if ($state == 3)
     {
         return "
-        <p id = 'state_three_question'>
-        <p> How confident are you about your selection? <p>
-        </p>
-        <p id = 'state_three'>
-
-            <label class='container'>
-                <input type='checkbox'>
-                <span class='checkmark'></span>
-            </label>
-
-            <label class='container'>
-                <input type='checkbox'>
-                <span class='checkmark'></span>
-            </label>
-
-            <label class='container'>
-                <input type='checkbox'>
-                <span class='checkmark'></span>
-            </label>
-
-            <label class='container'>
-                <input type='checkbox'>
-                <span class='checkmark'></span>
-            </label>
-
-            <label class='container'>
-                <input type='checkbox'>
-                <span class='checkmark'></span>
-            </label>
-
-            <label class='container'>
-                <input type='checkbox'>
-                <span class='checkmark'></span>
-            </label>
-
-            <label class='container'>
-                <input type='checkbox'>
-                <span class='checkmark'></span>
-            </label>
-            </p>
-        ";
+        <form action='' method = 'post'>
+        <div id = 'btn'>
+            <button id = 'btn_number'>#1</button>
+            <button id = 'btn_number'>#2</button>
+            <button id = 'btn_number'>#3</button>
+            <button id = 'btn_number'>#4</button>
+            <br>
+            <button id = 'btn_number'>#5</button>
+            <button id = 'btn_number'>#6</button>
+            <button id = 'btn_number'>#7</button>
+            <button id = 'btn_number'>#8</button>
+            <br>
+            <button id = 'btn_number'>#9</button>
+            <button id = 'btn_number'>#10</button>
+            <button id = 'btn_number'>#11</button>
+            <button id = 'btn_number'>#12</button>
+            <br>
+            <button id = 'btn_number'>#13</button>
+            <button id = 'btn_number'>#14</button>
+            <button id = 'btn_number'>#15</button>
+            <button id = 'btn_number'>#16</button>
+            </div>
+            </form>
+            "; 
+        
 
     }
     else 
     {
-        return 
-        "<p> Current Round Finished. </br>
-        Starting next round in <span id='time'>5</span> seconds </p>";
+        return "
+
+        <p> How confident are you about your selection? </p>
+
+        <p id = 'state_three'>
+        <form action='' method = 'post'>
+            <label class='container'>
+                <input type='checkbox'>
+                <span class='checkmark'></span>
+            </label>
+
+            <label class='container'>
+                <input type='checkbox'>
+                <span class='checkmark'></span>
+            </label>
+
+            <label class='container'>
+                <input type='checkbox'>
+                <span class='checkmark'></span>
+            </label>
+
+            <label class='container'>
+                <input type='checkbox'>
+                <span class='checkmark'></span>
+            </label>
+
+            <label class='container'>
+                <input type='checkbox'>
+                <span class='checkmark'></span>
+            </label>
+
+            <label class='container'>
+                <input type='checkbox'>
+                <span class='checkmark'></span>
+            </label>
+
+            <label class='container'>
+                <input type='checkbox'>
+                <span class='checkmark'></span>
+            </label>
+
+            </form>
+            </p>
+        ";
     }
 }
 ?>

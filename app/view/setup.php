@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>starter</title>
+    <title>Experiment Setup</title>
     <meta charset = "utf-8">
     <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
     <meta name = "viewport" content = "width = device-width, initial-scale = 1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type = "text/css" href="public/css/moderator_view.css">
+    <link rel="stylesheet" type = "text/css" href="../../public/css/moderator_view.css">
 </head>
 <body>
     <div class = "signin-form">
@@ -18,7 +18,7 @@
                 <h3>Experiment Setup</h3>
             </div>
             <div class = "form-group">
-                <p>Set virtual label of current experiment</p>
+                <!-- <p>Set virtual label of current experiment</p> -->
                 <label> Virtual Type</label>
                 <select class = "form-control" name="virtual_type" required>
                     <option disabled = ""> Select Virtual Type</option>
@@ -27,27 +27,47 @@
                 </select>
             </div>
             <div class = "form-group">
-                <p>Set spatial label of current experiment</p>
+                <!-- <p>Set spatial label of current experiment</p> -->
                 <label> Spatial Type</label>
                 <select class = "form-control" name="spatial_type" required>
                     <option disabled = ""> Select Spatial Type</option>
-                    <option>f2f</option>
-                    <option>sbs</option>
+                    <option>face to face</option>
+                    <option>side by side</option>
                 </select>
             </div>
+
+
+            <div class = "form-group">
+                <!-- <p>Set spatial label of current experiment</p> -->
+                <label> Testing Number Set</label>
+                <select class = "form-control" name="testing_number_set" required>
+                    <option disabled = ""> Select Testing Number Set</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+            </div>
+
             </div>
 
             
 
             <div class = "form-group">
-                <label> subject one name</label>
-                <input type="subject_1_name" class = "form-control" name = "subject_1_name" placeholder = "name" autocomplete = "off required">
+                <label> Pointer ID</label>
+                <input type="subject_1_name" class = "form-control" name = "subject_1_name" placeholder = "pointer id" autocomplete = "off required">
             </div>
 
             <div class = "form-group">
-                <label> subject two name</label>
-                <input type="subject_2_name" class = "form-control" name = "subject_2_name" placeholder = "name" autocomplete = "off required">
+                <label> Observer ID</label>
+                <input type="subject_2_name" class = "form-control" name = "subject_2_name" placeholder = "observer id" autocomplete = "off required">
             </div>
+
+            <div class = "form-group">
+                <label> Experiment ID</label>
+                <input type="subject_2_name" class = "form-control" name = "experiment_ID" placeholder = "experiment id (i.e. 1, 2, 3)" autocomplete = "off required">
+            </div>
+
 
 
             <div class = "form-group">
@@ -58,10 +78,9 @@
                 <button type = "submit" class = "btn btn-primary btn-block btn-lg" name = "sign_up"> submit </button>
             </div>
 
-            <?php include("setup_user.php")?>
+            <?php include("../model/setup_user.php")?>
             </form>
-        <div class = "text-center small" style = "color: #67428B;     font-family: JosefinSans-Regular;"> Load Preset <a href="starter.php">sign in</a>
-        </div>
+
      </div>
 
 </body>

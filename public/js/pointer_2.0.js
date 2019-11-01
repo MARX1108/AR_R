@@ -1,77 +1,55 @@
 $(document).ready(function () {
     sync();
-    setpage("observer", 0);
-    step = parseInt($('#step').text());
-
+    setpage("pointer", 0);
     // state_inquery();
 });
 
 $(document).on("keypress", function (e) {
     if (e.which == 13) {
-        // state_inquery();
-        controller();
+        state_inquery();
     }
 });
 
-function sync() {
+function callback(output) {
+    step = parseInt(output.state);
+    trial = parseInt(output.trial_number);
+    string = output.content;
+
+    // console.log("trial number: ", trial);
+    if (step == 1) {
+        trial = trial + 1;
+    }
+    if (step == 2) {
+        send_data('T1');
+    }
+    if (step == 3) {
+        send_data('T2');
+    }
+    append(step, string, trial);
+    if (step == 1) {
+        countdown(5);
+    }
+}
+
+function append(step, string, trial) {
+    // $('#state > h2').html("Step " + step + " Trial " + trial);
+    // $('#instruction').html(string);
+}
+
+function state_inquery() {
     $.ajax({
-        url: '../model/sync.php',
+        url: '../model/count.php',
         data: {
-            instruction: ' '
+            state: 'pointer'
         },
         method: 'post',
         dataType: 'json',
-        success: function (output) 
-        {
-
-
-            setTimeout(function(){sync();}, 100);
-
-            $('#trial').html(output.trial_number);
-            $('#step').html(output.ostate);
-            $('#pointer_step').html(output.pstate);
-            updateContent(output.ostate);
-
-
-
-        },
+        success: callback,
         error: function (xhr, status, error) {
-            alert(xhr.responseText);
+            // alert(xhr.responseText);
         }
     });
 }
-
-function controller()
-{
-    var step = parseInt($('#step').text());
-    var trial = parseInt($('#trial').text());
-    var pointer_step = parseInt($('#pointer_step').text());
-
-    if (step == 0 && pointer_step <= 2) 
-    {
-        setpage("observer", 1);
-    }
-    else if (step == 2 && pointer_step ==3) 
-    {
-        send_data('T3'); 
-        setpage("observer", 3);
-        setpage("pointer", 4);
-    }
-    else if (step == 3 ) 
-    {
-        // send_data('T4'); 
-        setpage("observer", 4);
-    }
-    else if (step == 4 && pointer_step == 4 ) 
-    {
-        send_data('T4'); 
-        setpage("observer", 1);
-        setpage("pointer", 1);
-        
-    }
-
-}
-
 
 function setpage(view, state) {
     $.ajax({
@@ -82,34 +60,39 @@ function setpage(view, state) {
         },
         method: 'post',
         dataType: 'json',
-        // success: callback,
+        success: callback,
         error: function (xhr, status, error) {
-            alert(xhr.responseText);
+            // alert(xhr.responseText);
         }
     });
 }
 
-
-function updateContent(state)
-{
+function sync() {
     $.ajax({
-        url: '../model/content.php',
+        url: '../model/sync.php',
         data: {
-            fetchContent: 'true',
-            clientView:'observer',
-            state:state
+            instruction: ' '
         },
         method: 'post',
         dataType: 'json',
         success: function (output) {
-            $('#instruction').html(output.content);
+            setTimeout(function(){sync();}, 100);
+            // var ostate = parseInt(output.ostate);
+            // var pstate = parseInt(output.pstate);
+            $('#trial').find("p").eq(0).text(output.result);
+            $('#step').find("p").eq(0).text(output.pstate);
+
+            // if (pstate == 0) setpage("pointer", 0);
+            // if (ostate == 2) setpage("pointer", 4);
+            // if ((ostate == 4 &&
+            //         pstate == 4) || (ostate == 4 &&
+            //         pstate == 3)) setpage("pointer", 1);
         },
         error: function (xhr, status, error) {
-            alert(xhr.responseText);
+            // alert(xhr.responseText);
         }
     });
 }
-
 
 function increment_trial_count() {
     $.ajax({
@@ -152,4 +135,22 @@ function send_data(data) {
             // alert(xhr.responseText);
         }
     });
+}
+
+function countdown(time) {
+    var timer = time,
+        seconds;
+
+    var x = setInterval(function () {
+        seconds = parseInt(timer % 60, 10);
+        seconds = seconds < 10 ? seconds : seconds;
+        document.getElementById("time").innerHTML = seconds;
+        if (timer == 2) increment_trial_count();
+
+        if (--timer < 0) {
+            clearInterval(x);
+            // send_data('T1');
+            setpage("pointer", 2);
+        }
+    }, 1000);
 }

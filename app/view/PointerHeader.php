@@ -28,5 +28,7 @@
     </div>
     <div class = "header" id = "state">
         <h1>Pointer View</h1>
-        <h2></h2>
+        <h2>Trial <a id = "trial"></a></h2>
+        <h2>Step <a id = "step"></a></h2>
+        <a id = "observer_step" hidden></a>
     </div>

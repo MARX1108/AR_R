@@ -8,27 +8,56 @@ $result = mysqli_query($con, $select);
 $p = $result->fetch_assoc();
 $result = $p["trial_number"]; 
 
-// $dataname = $_POST['data']; 
-
-
-// if ($dataname == 'T1')
-// {
-//     $update_new_row = "
-//     UPDATE 'raw_data'
-//     SET 'T1' = 'CURRENT_TIMESTAMP()'
-//     WHERE 'trial_number' = '$result'"; 
-
-//     mysqli_query($con, $update_new_row);
-// }
-
 if($result != -1)
 {
     $result = $result + 1;
     $insert_new_row = "INSERT INTO `raw_data`(`trial_number`) VALUES ($result)";
     mysqli_query($con, $insert_new_row);
     
-    $update_new_row = "UPDATE `raw_data` SET `date`= CURRENT_TIMESTAMP ORDER BY date DESC LIMIT 1"; 
+
+
+    $query = "SELECT `experiment_id`, `trial_number`, `pointer_ID`, 
+    `observer_ID`, `virtual_type`, `spatial_type`, `rehearsal`, `date`, 
+    `T1`, `T2`, `T3`, `T4`, `identified_number`, `confidence_level`, 
+    `testing_number_set` FROM ( SELECT `experiment_id`, 
+    `trial_number`, `pointer_ID`, `observer_ID`, `virtual_type`, 
+    `spatial_type`, `rehearsal`, `date`, `T1`, `T2`, `T3`, `T4`, 
+    `identified_number`, `confidence_level`, `testing_number_set`, 
+    ROW_NUMBER() OVER (ORDER BY date DESC) AS 
+    Rownumber FROM `raw_data` ) results WHERE 
+    results.Rownumber = 2";
+
+    
+    $q = mysqli_query($con, $query);
+    $array = $q->fetch_assoc();
+
+    $experiment_id = $array["experiment_id"];
+    $pointer_ID = $array["pointer_ID"];
+    $observer_ID = $array["observer_ID"];
+
+    $virtual_type = $array["virtual_type"];
+    $spatial_type = $array["spatial_type"];
+    $rehearsal = $array["rehearsal"];
+
+    $testing_number_set = $array["testing_number_set"];
+    
+    $update_new_row = "UPDATE `raw_data` SET `pointer_ID`= '$pointer_ID' ORDER BY date DESC LIMIT 1;";
     mysqli_query($con, $update_new_row);
+    $update_new_row = "UPDATE `raw_data` SET `experiment_id`= '$experiment_id' ORDER BY date DESC LIMIT 1;";
+    mysqli_query($con, $update_new_row);
+
+    $update_new_row = "UPDATE `raw_data` SET `observer_ID`= '$observer_ID' ORDER BY date DESC LIMIT 1;";
+    mysqli_query($con, $update_new_row);
+    $update_new_row = "UPDATE `raw_data` SET `virtual_type`= '$virtual_type' ORDER BY date DESC LIMIT 1;";
+    mysqli_query($con, $update_new_row);
+    $update_new_row = "UPDATE `raw_data` SET `spatial_type`= '$spatial_type' ORDER BY date DESC LIMIT 1;";
+    mysqli_query($con, $update_new_row);
+    $update_new_row = "UPDATE `raw_data` SET `rehearsal`= '$rehearsal' ORDER BY date DESC LIMIT 1;";
+    mysqli_query($con, $update_new_row);
+
+    $update_new_row = "UPDATE `raw_data` SET `testing_number_set`= '$testing_number_set' ORDER BY date DESC LIMIT 1;";
+    mysqli_query($con, $update_new_row);
+
 }
 
 
@@ -36,13 +65,13 @@ if($result != -1)
 $update="UPDATE `state` SET `trial_number`= '$result' " ; 
 mysqli_query($con, $update);
 
-echo json_encode(array("trial_number" => $result));
-
-
-
-
-
-
-
-
+echo json_encode(array("trial_number" => $result,
+"experiment_id" => $experiment_id,
+"pointer_ID" => $pointer_ID,
+"observer_ID" => $observer_ID,
+"virtual_type" => $virtual_type,
+"spatial_type" => $spatial_type,
+"rehearsal" => $rehearsal,
+"testing_number_set" => $testing_number_set,
+));
 ?>
