@@ -45,7 +45,8 @@ body{
     color: #64C7FA;
     background-color: Transparent;
     background-repeat:no-repeat;
-    border: none;
+    border: #64C7FA 10px solid;
+    margin: 5px;
     cursor:pointer;
     overflow: hidden;
     outline:none;

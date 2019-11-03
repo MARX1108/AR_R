@@ -1,6 +1,8 @@
 $(document).ready(function () {
     sync();
     setpage("pointer", 0);
+    setpage("observer", 0);
+
     step = parseInt($('#step').text());
 
     // state_inquery();

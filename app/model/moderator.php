@@ -1,18 +1,17 @@
 <?php
 
-
-$command = $_POST[command];
-if(isset($command))
+if(isset($_POST['command']))
 {
+    $command = $_POST['command'];
     if (strcmp($command, "start") == 0)
     {
         start_all();
-        // echo("reset");
+        echo("Experiment is successfully started");
     }
     else if(strcmp($command, "reset") == 0)
     {
         reset_all();
-        // echo("not reset");
+        echo("Experiment is successfully reseted");
     }
 }
 

@@ -31,11 +31,11 @@ function p_view($state)
 
     if ($state == 0)
     {
-        return "<p id = 'main'> When instructed to do so </br> Press ENTER to start</p>";
+        return "<p id = 'main'> When you are ready to start</br> press ENTER</p>";
     }
     else if ($state == 1)
     {
-        return "<p id = 'main'> 5 seconds count down </br> The number will show up in <span id='time'>5</span> seconds...</p>";
+        return "<p id = 'main'> 5 seconds count down </br> The number will show up in <span id='time'>3</span> seconds...</p>";
     }
     else if ($state == 2)
     {
@@ -43,11 +43,11 @@ function p_view($state)
     }
     else if ($state == 3)
     {
-        return "<p id = 'main'> Please hold your hands </p>";
+        return "<p id = 'main'> Please keep your dominant hand still</p>";
     }
     else
     {
-        return "<p id = 'main'> Please pull back your hands </br> Current trial finished </p>";
+        return "<p id = 'main'> Please pull back your hand </br> Current trial finished </br> Please wait for instructions</p>";
     }
 
 }
@@ -56,7 +56,7 @@ function o_view($state)
 {
     if ($state == 0)
     {
-        return "<p id = 'main'> When instructed to do so </br> Press ENTER to start</p>";
+        return "<p id = 'main'> When you are ready to start</br> press ENTER</p>";
     }
     else if ($state == 1)
     {
@@ -79,23 +79,33 @@ function o_view($state)
             <button id = 'btn_number'>#2</button>
             <button id = 'btn_number'>#3</button>
             <button id = 'btn_number'>#4</button>
-            <br>
             <button id = 'btn_number'>#5</button>
             <button id = 'btn_number'>#6</button>
             <button id = 'btn_number'>#7</button>
             <button id = 'btn_number'>#8</button>
-            <br>
             <button id = 'btn_number'>#9</button>
+            <br>
             <button id = 'btn_number'>#10</button>
             <button id = 'btn_number'>#11</button>
             <button id = 'btn_number'>#12</button>
-            <br>
             <button id = 'btn_number'>#13</button>
             <button id = 'btn_number'>#14</button>
             <button id = 'btn_number'>#15</button>
             <button id = 'btn_number'>#16</button>
             </div>
             </form>
+
+            <div class='text-center small' style= 'margin-top: 7%;'>
+            <a href='../view/setup.php' style='
+            color: #64C7FA;
+            text-decoration: none;
+            background-color: transparent;
+            background: white;
+            font-size: 250%;
+            padding: 1.5%;
+            border-radius: 29px;'>
+            Confirm</a>
+            </div>
             "; 
         
 
@@ -104,7 +114,7 @@ function o_view($state)
     {
         return "
 
-        <p> How confident are you about your selection? </p>
+        <p> Please rate the confidence level of your observation </p>
 
         <p id = 'state_three'>
         <form action='' method = 'post'>
@@ -145,6 +155,18 @@ function o_view($state)
 
             </form>
             </p>
+            <div class='text-center small' style= 'margin-top: 7%;'>
+            <a href='../view/setup.php' style='
+            color: #64C7FA;
+            text-decoration: none;
+            background-color: transparent;
+            background: white;
+            font-size: 250%;
+            padding: 1.5%;
+            border-radius: 29px;'>
+            Confirm</a>
+            </div>
+
         ";
     }
 }
