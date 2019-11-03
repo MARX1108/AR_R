@@ -22,17 +22,23 @@ function sync() {
         },
         method: 'post',
         dataType: 'json',
-        success: function (output) 
-        {
+        success: function (output) {
 
 
-            setTimeout(function(){sync();}, 100);
+            setTimeout(function () {
+                sync();
+            }, 500);
+
+            if (output.ostate == 3 || output.ostate == 4) {
+
+            } else {
+                updateContent(output.ostate);
+            }
+
 
             $('#trial').html(output.trial_number);
             $('#step').html(output.ostate);
             $('#pointer_step').html(output.pstate);
-            updateContent(output.ostate);
-
 
 
         },
@@ -42,33 +48,32 @@ function sync() {
     });
 }
 
-function controller()
-{
+function controller() {
     var step = parseInt($('#step').text());
     var trial = parseInt($('#trial').text());
     var pointer_step = parseInt($('#pointer_step').text());
-
-    if (step == 0 && pointer_step <= 2) 
-    {
-        setpage("observer", 1);
-    }
-    else if (step == 2 && pointer_step ==3) 
-    {
-        send_data('T3'); 
-        setpage("observer", 3);
-        setpage("pointer", 4);
-    }
-    else if (step == 3 ) 
-    {
-        // send_data('T4'); 
-        setpage("observer", 4);
-    }
-    else if (step == 4 && pointer_step == 4 ) 
-    {
-        send_data('T4'); 
-        setpage("observer", 1);
-        setpage("pointer", 1);
-        
+    if (trial != -1) {
+        if (step == 0 && pointer_step <= 2) {
+            setpage("observer", 1);
+            
+        } else if (step == 2 && pointer_step == 3) {
+            send_data('T3');
+            setpage("observer", 3);
+            updateContent(3);
+            setpage("pointer", 4);
+        } else if (step == 3) {
+            send_data('T4');
+            setpage("observer", 4);
+            updateContent(4);
+        } else if (step == 4 && pointer_step == 4 && trial != 20) {
+            // send_data('T4');
+            setpage("observer", 1);
+            setpage("pointer", 1);
+        } else if (step == 4 && pointer_step == 4 && trial == 20) {
+            send_data('T4');
+            setpage("observer", 0);
+            setpage("pointer", 0);
+        }
     }
 
 }
@@ -91,18 +96,21 @@ function setpage(view, state) {
 }
 
 
-function updateContent(state)
-{
+function updateContent(state) {
+    // alert(state);
+    console.log("content updated");
     $.ajax({
         url: '../model/content.php',
         data: {
             fetchContent: 'true',
-            clientView:'observer',
-            state:state
+            clientView: 'observer',
+            state: state
         },
         method: 'post',
         dataType: 'json',
-        success: function (output) {
+        success: function (output) 
+        {
+            console.log("content return:", output);
             $('#instruction').html(output.content);
         },
         error: function (xhr, status, error) {
@@ -110,7 +118,6 @@ function updateContent(state)
         }
     });
 }
-
 
 function increment_trial_count() {
     $.ajax({
@@ -147,10 +154,91 @@ function send_data(data) {
         method: 'post',
         dataType: 'json',
         success: function (output) {
-            // $('#state > h2').append(" Trial " + output.trial_number);
+            // $('# state > h2 ').append(" Trial " + output.trial_number);
+    },
+    error: function (xhr, status, error) {
+        // alert(xhr.responseText);
+    }
+});
+}
+
+
+function identified_number_submit() {
+    number = parseInt($('input[name=selected_num]:checked').val());
+    // console.log(number);
+
+    $.ajax({
+        url: '../model/selected_num.php',
+        data: {
+            selected_num: number
+        },
+        method: 'post',
+        success: function () {
+            controller();
+            setTimeout(function () {
+                $.ajax({
+                    url: '../model/sync.php',
+                    data: {
+                        instruction: ' '
+                    },
+                    method: 'post',
+                    dataType: 'json',
+                    success: function (output) {
+
+                        $('#trial').html(output.trial_number);
+                        $('#step').html(output.ostate);
+                        $('#pointer_step').html(output.pstate);
+                        updateContent(output.ostate);
+                    },
+                    error: function (xhr, status, error) {
+                        alert(xhr.responseText);
+                    }
+                });
+            }, 1000);
+
         },
         error: function (xhr, status, error) {
-            // alert(xhr.responseText);
+            alert(xhr.responseText);
+        }
+    });
+}
+
+
+function confidence_level() {
+    number = parseInt($('input[name=confidence]:checked').val());
+    console.log(number);
+
+    $.ajax({
+        url: '../model/confidence_level.php',
+        data: {
+            confidence: number
+        },
+        method: 'post',
+        success: function () {
+            controller();
+            setTimeout(function () {
+                $.ajax({
+                    url: '../model/sync.php',
+                    data: {
+                        instruction: ' '
+                    },
+                    method: 'post',
+                    dataType: 'json',
+                    success: function (output) {
+                        $('#trial').html(output.trial_number);
+                        $('#step').html(output.ostate);
+                        $('#pointer_step').html(output.pstate);
+                        updateContent(output.ostate);
+                    },
+                    error: function (xhr, status, error) {
+                        alert(xhr.responseText);
+                    }
+                });
+            }, 1000);
+
+        },
+        error: function (xhr, status, error) {
+            alert(xhr.responseText);
         }
     });
 }

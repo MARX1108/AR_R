@@ -1,5 +1,6 @@
 <?php
 
+
 if(isset($_POST['command']))
 {
     $command = $_POST['command'];

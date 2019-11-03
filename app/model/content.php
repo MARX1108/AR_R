@@ -73,99 +73,78 @@ function o_view($state)
     else if ($state == 3)
     {
         return "
-        <form action='' method = 'post'>
-        <div id = 'btn'>
-            <button id = 'btn_number'>#1</button>
-            <button id = 'btn_number'>#2</button>
-            <button id = 'btn_number'>#3</button>
-            <button id = 'btn_number'>#4</button>
-            <button id = 'btn_number'>#5</button>
-            <button id = 'btn_number'>#6</button>
-            <button id = 'btn_number'>#7</button>
-            <button id = 'btn_number'>#8</button>
-            <button id = 'btn_number'>#9</button>
+        
+            <div id = 'btn'>
+            <input type = 'radio' id = 'btn_number' name = 'selected_num' value = '1' >#1</input>
+            <input type = 'radio' id = 'btn_number'  name = 'selected_num' value = '2'>#2</input>
+            <input type = 'radio' id = 'btn_number'  name = 'selected_num' value = '3'>#3</input>
+            <input type = 'radio' id = 'btn_number'  name = 'selected_num' value = '4'>#4</input>
+            <input type = 'radio' id = 'btn_number'  name = 'selected_num' value = '5'>#5</input>
+            <input type = 'radio' id = 'btn_number'  name = 'selected_num' value = '6'>#6</input>
+            <input type = 'radio' id = 'btn_number'  name = 'selected_num' value = '7'>#7</input>
+            <input type = 'radio' id = 'btn_number'  name = 'selected_num' value = '8'>#8</input>
+            <input type = 'radio' id = 'btn_number'  name = 'selected_num' value = '9'>#9</input>
             <br>
-            <button id = 'btn_number'>#10</button>
-            <button id = 'btn_number'>#11</button>
-            <button id = 'btn_number'>#12</button>
-            <button id = 'btn_number'>#13</button>
-            <button id = 'btn_number'>#14</button>
-            <button id = 'btn_number'>#15</button>
-            <button id = 'btn_number'>#16</button>
+            <input type = 'radio' id = 'btn_number'  name = 'selected_num' value = '10'>#10</input>
+            <input type = 'radio' id = 'btn_number'  name = 'selected_num' value = '11'>#11</input>
+            <input type = 'radio' id = 'btn_number'  name = 'selected_num' value = '12'>#12</input>
+            <input type = 'radio' id = 'btn_number'  name = 'selected_num' value = '13'>#13</input>
+            <input type = 'radio' id = 'btn_number'  name = 'selected_num' value = '14'>#14</input>
+            <input type = 'radio' id = 'btn_number'  name = 'selected_num' value = '15'>#15</input>
+            <input type = 'radio' id = 'btn_number'  name = 'selected_num' value = '16'>#16</input>
             </div>
-            </form>
-
+            
             <div class='text-center small' style= 'margin-top: 7%;'>
-            <a href='../view/setup.php' style='
+            <button onclick = 'identified_number_submit()' style='
             color: #64C7FA;
             text-decoration: none;
             background-color: transparent;
             background: white;
             font-size: 250%;
             padding: 1.5%;
-            border-radius: 29px;'>
-            Confirm</a>
+            border-radius: 29px;'> Confirm </button>
             </div>
+            
             "; 
+            // <form action='' method = 'post'>
+            // </form>
         
-
+            // <a onclick = 'identified_number_submit()'  style='
+            // color: #64C7FA;
+            // text-decoration: none;
+            // background-color: transparent;
+            // background: white;
+            // font-size: 250%;
+            // padding: 1.5%;
+            // border-radius: 29px;'>
+            // Confirm</a>
     }
     else 
     {
         return "
 
         <p> Please rate the confidence level of your observation </p>
-
-        <p id = 'state_three'>
-        <form action='' method = 'post'>
-            <label class='container'>
-                <input type='checkbox'>
-                <span class='checkmark'></span>
-            </label>
-
-            <label class='container'>
-                <input type='checkbox'>
-                <span class='checkmark'></span>
-            </label>
-
-            <label class='container'>
-                <input type='checkbox'>
-                <span class='checkmark'></span>
-            </label>
-
-            <label class='container'>
-                <input type='checkbox'>
-                <span class='checkmark'></span>
-            </label>
-
-            <label class='container'>
-                <input type='checkbox'>
-                <span class='checkmark'></span>
-            </label>
-
-            <label class='container'>
-                <input type='checkbox'>
-                <span class='checkmark'></span>
-            </label>
-
-            <label class='container'>
-                <input type='checkbox'>
-                <span class='checkmark'></span>
-            </label>
-
-            </form>
-            </p>
-            <div class='text-center small' style= 'margin-top: 7%;'>
-            <a href='../view/setup.php' style='
-            color: #64C7FA;
-            text-decoration: none;
-            background-color: transparent;
-            background: white;
-            font-size: 250%;
-            padding: 1.5%;
-            border-radius: 29px;'>
-            Confirm</a>
-            </div>
+        <div id = 'btn'>
+        <input type = 'radio' id = 'btn_number' name = 'confidence' value = '1' > Not at all confident</input>
+        <input type = 'radio' id = 'btn_number'  name = 'confidence' value = '2'>#2</input>
+        <input type = 'radio' id = 'btn_number'  name = 'confidence' value = '3'>#3</input>
+        <input type = 'radio' id = 'btn_number'  name = 'confidence' value = '4'>Somewhat confident</input>
+        <input type = 'radio' id = 'btn_number'  name = 'confidence' value = '5'>#5</input>
+        <input type = 'radio' id = 'btn_number'  name = 'confidence' value = '6'>#6</input>
+        <input type = 'radio' id = 'btn_number'  name = 'confidence' value = '7'>Very confident</input>
+    
+        </div>
+        
+        <div class='text-center small' style= 'margin-top: 7%;'>
+        <button onclick = 'confidence_level()' style='
+        color: #64C7FA;
+        text-decoration: none;
+        background-color: transparent;
+        background: white;
+        font-size: 250%;
+        padding: 1.5%;
+        border-radius: 29px;'> Confirm </button>
+        </div>
 
         ";
     }

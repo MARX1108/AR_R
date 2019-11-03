@@ -35,20 +35,6 @@ function sync() {
             {
                 setTimeout(function(){sync();}, 100);
             }
-            
-
-            // if(output.pstate == 3 && output.ostate != 2) 
-            // {
-            //     setpage("observer", 2);
-            // }
-
-            // if ( output.pstate != 4 && output.ostate == 3)
-            // {
-            //     setpage("pointer", 4);
-            // }
-
-
-            
 
             $('#trial').html(output.trial_number);
             $('#step').html(output.pstate);
@@ -67,18 +53,22 @@ function controller()
     var step = parseInt($('#step').text());
     var trial = parseInt($('#trial').text());
     var observer_step = parseInt($('#observer_step').text());
-
-    if (step == 0) 
+    if (trial != -1)
     {
-        setpage("pointer", 1);
+        if (step == 0) 
+        {
+            setpage("pointer", 1);
+        }
+
+        else if (step == 2 && observer_step == 1) 
+        {
+            
+            send_data('T2');
+            setpage("pointer", 3);
+            setpage("observer", 2);
+        }
     }
 
-    else if (step == 2 && observer_step == 1) 
-    {
-        // send_data('T1');
-        setpage("pointer", 3);
-        setpage("observer", 2);
-    }
 
     // else if (step == 3) 
     // {
@@ -184,8 +174,8 @@ function countdown(time) {
         if (timer == 2) increment_trial_count();
         console.log(seconds);
         if (--timer < 0) {
+            send_data('T1');
             clearInterval(x);
-
         }
     }, 1000);
 }

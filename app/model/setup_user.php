@@ -1,5 +1,6 @@
 <?php 
 include("../controller/include/connection.php");
+include("../model/moderator.php");
 
 function debug_to_console($data) {
     $output = $data;
@@ -16,15 +17,15 @@ function debug_to_console($data) {
 
     if(isset($_POST['sign_up']))
     {
-        $subject_1_name = htmlentities(mysqli_real_escape_string($con, $_POST['subject_1_name']));
-        $subject_2_name = htmlentities(mysqli_real_escape_string($con, $_POST['subject_2_name']));
+        $pointer_id = htmlentities(mysqli_real_escape_string($con, $_POST['pointer_id']));
+        $observer_id = htmlentities(mysqli_real_escape_string($con, $_POST['observer_id']));
 
         $virtual_type = htmlentities(mysqli_real_escape_string($con, $_POST['virtual_type']));
         $spatial_type = htmlentities(mysqli_real_escape_string($con, $_POST['spatial_type']));
 
 
-        $experiment_ID = htmlentities(mysqli_real_escape_string($con, (int)$_POST['experiment_ID']));
-        $testing_number_set = htmlentities(mysqli_real_escape_string($con, (int)$_POST['testing_number_set']));
+        $experiment_id = htmlentities(mysqli_real_escape_string($con, (int)$_POST['experiment_id']));
+        $session_id = htmlentities(mysqli_real_escape_string($con, (int)$_POST['session_id']));
 
 
         if (empty($_POST['rehearsal']))
@@ -33,7 +34,6 @@ function debug_to_console($data) {
         }
         else
         {
-
             $temp = "on";
         }
         $rehearsal = htmlentities(mysqli_real_escape_string($con, $temp));
@@ -52,17 +52,17 @@ function debug_to_console($data) {
         // debug_to_console("data in spatial_type: $spatial_type ;");
         // debug_to_console("data in rehearsal: $rehearsal ;");
 
-        if($subject_1_name == '' || $subject_2_name == '') 
+        if($pointer_id == '' || $observer_id == '') 
         {
             echo "<script>alert('pointer or observer id missing')</script>";
         }
 
-        $insert = "insert into raw_data (pointer_ID, observer_ID, virtual_type, spatial_type, rehearsal, testing_number_set, experiment_id) 
-        values('$subject_1_name', '$subject_2_name', '$virtual_type', '$spatial_type', '$rehearsal', '$testing_number_set', '$experiment_ID')";
+        $insert = "insert into experiment_info (pointer_id, observer_id, virtual_type, spatial_type, rehearsal, session_id, experiment_id) 
+        values('$pointer_id', '$observer_id', '$virtual_type', '$spatial_type', '$rehearsal', '$session_id', '$experiment_id')";
 
         $query = mysqli_query($con, $insert);
         debug_to_console($query);
-     
+        start_all();
 
         if ($query)
         {
@@ -71,10 +71,7 @@ function debug_to_console($data) {
         }
         else
         {
-            // printf("Error message: %s\n", mysqli_error($con));
-            // debug_to_console("error messages: " + mysqli_error( $con ));
             echo "<script>alert('setup unsuccessful, try again!')</script>";
-            printf("Error message: %s\n", mysqli_error($con));
         }
     }
 

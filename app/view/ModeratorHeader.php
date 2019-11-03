@@ -16,67 +16,22 @@
     </script>
     <script src="<?= BASE_URL ?>/public/js/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../../public/css/moderator_view.css">
-    <script>
-        function callback(output) 
-        {
-            // console.log("callback");
-            alert(output);
-            location.reload();
-            // alert(output);
-            // console.log(output);
-        }
-
-        function control(command) {
-
-                // if(command == 'start')
-                // {
-                //     // alert('test');
-                //     window.location.replace("../view/setup.php");
-                // }
-                // else
-                // {
-                    console.log("clicked");
-                    $.ajax({
-                    url: '../model/moderator.php',
-                    data: {
-                        command: command
-                    },
-                    method: 'post',
-                    success: callback,
-                    error: function (xhr, status, error) {
-                        // alert(xhr.responseText);
-                    }
-                });
-                // }
-                
-
-        }
-    </script>
+    <script src="../../public/js/moderator.js" > </script>
 </head>
 
 <body>
     <div class="header" id="state_info">
         <h1>Moderator View</h1>
+        <h2>Trial <a id = "trial"></a></h2>
+        <h2>Pointer Step <a id = "pointer_step"></a></h2>
+        <h2>Observer Step <a id = "observer_step"></a></h2>
     </div>
-        <div class="content" id="instruction">
-            <button  id="controller" onclick="control('start')"> Start </button>
-            <button  id="controller"  onclick="control('reset')"> Reset </button>
-            <!-- <button type = "submit" id = "controller" name = 'stop'> Stop </button> -->
-        </div>
 
-        <div class="text-center small" style=" margin-top: 7%; ">
-            <a href="../view/setup.php" style="
-            color: #8f8f8f;
-            text-decoration: none;
-            background-color: transparent;
-            background: white;
-            font-size: x-large;
-            padding: 1.5%;
-            border-radius: 29px;">
-            Enter Current Experiment Info</a>
-        </div>
-
-
+    <div class="content" id="instruction">
+        <a id="controller" href="../view/setup.php" style="text-decoration: none;"> Start </a>
+        <button type = 'submit'  id="controller" onclick="control('reset')"> Reset </button>
+        <!-- <button type = "submit" id = "controller" name = 'stop'> Stop </button> -->
+    </div>
 
 </body>
 
