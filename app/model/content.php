@@ -38,19 +38,28 @@ function p_view($state)
     $q = $p["experiment_id"]; 
     $set = 'Set_'.(string)$q;
 
+    $rehearsal = $p["rehearsal"]; 
+    if(strcmp($rehearsal, 'on')==0)
+    {
+        // $result = rand(1,16);
+        $set = 'Set_9';
+    }
+    
     $result = $t[$set]; 
+    
+
 
     if ($state == 0)
     {
-        return "<p id = 'main'> When you are ready to start</br> press ENTER</p>";
+        return "<p id = 'main'> When you are ready to start</br> press ENTER </p>";
     }
     else if ($state == 1)
     {
-        return "<p id = 'main'> 5 seconds count down </br> The number will show up in <span id='time'>3</span> seconds...</p>";
+        return "<p id = 'main'> 3 seconds count down </br> The number will show up in <span id='time'>3</span> seconds...</p>";
     }
     else if ($state == 2)
     {
-        return "<p id = 'main'> #$result</br> Press the key when you finish pointing</p>";
+        return "<p id = 'main'>$result</br> Press the key when you finish pointing</p>";
     }
     else if ($state == 3)
     {
@@ -85,28 +94,27 @@ function o_view($state)
     {
         return "
             <div id = 'btn'>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='1' id='btn_number-one' class='form-radio' checked><label for='radio-one'>#1</label></div>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='2' id='btn_number-one' class='form-radio' checked><label for='radio-one'>#2</label></div>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='3' id='btn_number-one' class='form-radio' checked><label for='radio-one'>#3</label></div>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='4' id='btn_number-one' class='form-radio' checked><label for='radio-one'>#4</label></div>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='5' id='btn_number-one' class='form-radio' checked><label for='radio-one'>#5</label></div>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='6' id='btn_number-one' class='form-radio' checked><label for='radio-one'>#6</label></div>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='7' id='btn_number-one' class='form-radio' checked><label for='radio-one'>#7</label></div>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='8' id='btn_number-one' class='form-radio' checked><label for='radio-one'>#8</label></div>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='9' id='btn_number-one' class='form-radio' checked><label for='radio-one'>#9</label></div>
-
+            <div id = 'label_2'><input type='radio' name='selected_num' value='1' id='btn_number-one' class='form-radio' ><label for='radio-one'>1</label></div>
+            <div id = 'label_2'><input type='radio' name='selected_num' value='2' id='btn_number-one' class='form-radio' ><label for='radio-one'>2</label></div>
+            <div id = 'label_2'><input type='radio' name='selected_num' value='3' id='btn_number-one' class='form-radio' ><label for='radio-one'>3</label></div>
+            <div id = 'label_2'><input type='radio' name='selected_num' value='4' id='btn_number-one' class='form-radio' ><label for='radio-one'>4</label></div>
+            <div id = 'label_2'><input type='radio' name='selected_num' value='5' id='btn_number-one' class='form-radio' ><label for='radio-one'>5</label></div>
+            <div id = 'label_2'><input type='radio' name='selected_num' value='6' id='btn_number-one' class='form-radio' ><label for='radio-one'>6</label></div>
+            <div id = 'label_2'><input type='radio' name='selected_num' value='7' id='btn_number-one' class='form-radio' ><label for='radio-one'>7</label></div>
+            <div id = 'label_2'><input type='radio' name='selected_num' value='8' id='btn_number-one' class='form-radio' ><label for='radio-one'>8</label></div>
             <br>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='10' id='btn_number-one' class='form-radio' checked><label for='radio-one'>#10</label></div>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='11' id='btn_number-one' class='form-radio' checked><label for='radio-one'>#11</label></div>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='12' id='btn_number-one' class='form-radio' checked><label for='radio-one'>#12</label></div>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='13' id='btn_number-one' class='form-radio' checked><label for='radio-one'>#13</label></div>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='14' id='btn_number-one' class='form-radio' checked><label for='radio-one'>#14</label></div>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='15' id='btn_number-one' class='form-radio' checked><label for='radio-one'>#15</label></div>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='16' id='btn_number-one' class='form-radio' checked><label for='radio-one'>#16</label></div>
+            <div id = 'label_2'><input type='radio' name='selected_num' value='9' id='btn_number-one' class='form-radio' ><label for='radio-one'>9</label></div>
+            <div id = 'label_2'><input type='radio' name='selected_num' value='10' id='btn_number-one' class='form-radio' ><label for='radio-one'>10</label></div>
+            <div id = 'label_2'><input type='radio' name='selected_num' value='11' id='btn_number-one' class='form-radio' ><label for='radio-one'>11</label></div>
+            <div id = 'label_2'><input type='radio' name='selected_num' value='12' id='btn_number-one' class='form-radio' ><label for='radio-one'>12</label></div>
+            <div id = 'label_2'><input type='radio' name='selected_num' value='13' id='btn_number-one' class='form-radio' ><label for='radio-one'>13</label></div>
+            <div id = 'label_2'><input type='radio' name='selected_num' value='14' id='btn_number-one' class='form-radio' ><label for='radio-one'>14</label></div>
+            <div id = 'label_2'><input type='radio' name='selected_num' value='15' id='btn_number-one' class='form-radio' ><label for='radio-one'>15</label></div>
+            <div id = 'label_2'><input type='radio' name='selected_num' value='16' id='btn_number-one' class='form-radio' ><label for='radio-one'>16</label></div>
             </div>
             
             <div class='text-center small' style= 'margin-top: 7%;'>
-            <button onclick = 'identified_number_submit()' style='
+            <button id = 'confirmBtn' onclick = 'identified_number_submit()' style='
             color: #64C7FA;
             text-decoration: none;
             background-color: transparent;
@@ -114,7 +122,9 @@ function o_view($state)
             font-size: 250%;
             padding: 1.5%;
             border-radius: 29px;
-            border: #64C7FA;'> Confirm </button>
+            border: #64C7FA;'
+            
+            > Confirm </button>
             </div>
             
             "; 
@@ -148,13 +158,13 @@ function o_view($state)
         <p> Please rate the confidence level of your observation </p>
         <div id = 'btn'>
         
-        <div id = 'label'><input type='radio' name='confidence' value='1' id='btn_number-one' class='form-radio' checked><label for='radio-one'>#1</label></div>
-        <div id = 'label'><input type='radio' name='confidence' value='2' id='btn_number-one' class='form-radio' checked><label for='radio-one'>#2</label></div>
-        <div id = 'label'><input type='radio' name='confidence' value='3' id='btn_number-one' class='form-radio' checked><label for='radio-one'>#3</label></div>
-        <div id = 'label'><input type='radio' name='confidence' value='4' id='btn_number-one' class='form-radio' checked><label for='radio-one'>#4</label></div>
-        <div id = 'label'><input type='radio' name='confidence' value='5' id='btn_number-one' class='form-radio' checked><label for='radio-one'>#5</label></div>
-        <div id = 'label'><input type='radio' name='confidence' value='6' id='btn_number-one' class='form-radio' checked><label for='radio-one'>#6</label></div>
-        <div id = 'label'><input type='radio' name='confidence' value='7' id='btn_number-one' class='form-radio' checked><label for='radio-one'>#7</label></div>
+        <div id = 'label'><input type='radio' name='confidence' value='1' id='btn_number-one' class='form-radio' ><label for='radio-one'>1</label></div>
+        <div id = 'label'><input type='radio' name='confidence' value='2' id='btn_number-one' class='form-radio' ><label for='radio-one'>2</label></div>
+        <div id = 'label'><input type='radio' name='confidence' value='3' id='btn_number-one' class='form-radio' ><label for='radio-one'>3</label></div>
+        <div id = 'label'><input type='radio' name='confidence' value='4' id='btn_number-one' class='form-radio' ><label for='radio-one'>4</label></div>
+        <div id = 'label'><input type='radio' name='confidence' value='5' id='btn_number-one' class='form-radio' ><label for='radio-one'>5</label></div>
+        <div id = 'label'><input type='radio' name='confidence' value='6' id='btn_number-one' class='form-radio' ><label for='radio-one'>6</label></div>
+        <div id = 'label'><input type='radio' name='confidence' value='7' id='btn_number-one' class='form-radio' ><label for='radio-one'>7</label></div>
            
         </div>
         <div>
@@ -164,7 +174,7 @@ function o_view($state)
         </div>
 
         <div class='text-center small' style= 'margin-top: 7%;'>
-        <button onclick = 'confidence_level()' style='
+        <button id = 'confirmBtn' onclick = 'confidence_level()' style='
         color: #64C7FA;
         text-decoration: none;
         background-color: transparent;
@@ -172,7 +182,9 @@ function o_view($state)
         font-size: 250%;
         padding: 1.5%;
         border-radius: 29px;
-        border: #64C7FA;'> Confirm </button>
+        border: #64C7FA;' 
+        
+        > Confirm </button>
         </div>
 
         ";

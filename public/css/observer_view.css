@@ -26,20 +26,20 @@ h2 {
 }
 
 div#label {
-    width: 5%;
+    width: 3%;
     margin: 0%;
     padding: 0%;
     display: inline-block;
     margin-right: 2%;
-    margin-left: 3%;
+    margin-left: 4.5%;
 }
 div#label_2 {
-    width: 5%;
+    width: 3%;
     margin: 0%;
     padding: 0%;
     display: inline-block;
     /* margin-right: 2%; */
-    margin-left: 1%;
+    margin-left: 3%;
 }
 
 .conf_label {
@@ -182,7 +182,7 @@ label {
 }
 
 .form-radio {
-    border-radius: 3px;
+    border-radius: 50px;
 }
 
 /* extensions------------------------------------------------- */

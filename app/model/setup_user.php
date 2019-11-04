@@ -35,6 +35,51 @@ function debug_to_console($data) {
         else
         {
             $temp = "on";
+
+            $ran = rand(1,16);
+            mysqli_query($con, "UPDATE `test_number` SET `Set_9`= $ran WHERE trial_number = 1");
+            $ran = rand(1,16);
+            mysqli_query($con, "UPDATE `test_number` SET `Set_9`= $ran WHERE trial_number = 2");
+            $ran = rand(1,16);
+            mysqli_query($con, "UPDATE `test_number` SET `Set_9`= $ran WHERE trial_number = 3");
+            $ran = rand(1,16);
+            mysqli_query($con, "UPDATE `test_number` SET `Set_9`= $ran WHERE trial_number = 4");
+            $ran = rand(1,16);
+            mysqli_query($con, "UPDATE `test_number` SET `Set_9`= $ran WHERE trial_number = 5");
+
+            $ran = rand(1,16);
+            mysqli_query($con, "UPDATE `test_number` SET `Set_9`= $ran WHERE trial_number = 6");
+            $ran = rand(1,16);
+            mysqli_query($con, "UPDATE `test_number` SET `Set_9`= $ran WHERE trial_number = 7");
+            $ran = rand(1,16);
+            mysqli_query($con, "UPDATE `test_number` SET `Set_9`= $ran WHERE trial_number = 8");
+            $ran = rand(1,16);
+            mysqli_query($con, "UPDATE `test_number` SET `Set_9`= $ran WHERE trial_number = 9");
+            $ran = rand(1,16);
+            mysqli_query($con, "UPDATE `test_number` SET `Set_9`= $ran WHERE trial_number = 10");
+
+            $ran = rand(1,16);
+            mysqli_query($con, "UPDATE `test_number` SET `Set_9`= $ran WHERE trial_number = 11");
+            $ran = rand(1,16);
+            mysqli_query($con, "UPDATE `test_number` SET `Set_9`= $ran WHERE trial_number = 12");
+            $ran = rand(1,16);
+            mysqli_query($con, "UPDATE `test_number` SET `Set_9`= $ran WHERE trial_number = 13");
+            $ran = rand(1,16);
+            mysqli_query($con, "UPDATE `test_number` SET `Set_9`= $ran WHERE trial_number = 14");
+            $ran = rand(1,16);
+            mysqli_query($con, "UPDATE `test_number` SET `Set_9`= $ran WHERE trial_number = 15");
+
+            $ran = rand(1,16);
+            mysqli_query($con, "UPDATE `test_number` SET `Set_9`= $ran WHERE trial_number = 16");
+            $ran = rand(1,16);
+            mysqli_query($con, "UPDATE `test_number` SET `Set_9`= $ran WHERE trial_number = 17");
+            $ran = rand(1,16);
+            mysqli_query($con, "UPDATE `test_number` SET `Set_9`= $ran WHERE trial_number = 18");
+            $ran = rand(1,16);
+            mysqli_query($con, "UPDATE `test_number` SET `Set_9`= $ran WHERE trial_number = 19");
+            $ran = rand(1,16);
+            mysqli_query($con, "UPDATE `test_number` SET `Set_9`= $ran WHERE trial_number = 20");
+
         }
         $rehearsal = htmlentities(mysqli_real_escape_string($con, $temp));
 

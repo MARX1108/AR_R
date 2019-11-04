@@ -16,17 +16,6 @@ if($result != -1)
     
 
 
-    // $query = "SELECT `experiment_id`, `trial_number`, `pointer_ID`, 
-    // `observer_ID`, `virtual_type`, `spatial_type`, `rehearsal`, `date`, 
-    // `T1`, `T2`, `T3`, `T4`, `identified_number`, `confidence_level`, 
-    // `testing_number_set` FROM ( SELECT `experiment_id`, 
-    // `trial_number`, `pointer_ID`, `observer_ID`, `virtual_type`, 
-    // `spatial_type`, `rehearsal`, `date`, `T1`, `T2`, `T3`, `T4`, 
-    // `identified_number`, `confidence_level`, `testing_number_set`, 
-    // ROW_NUMBER() OVER (ORDER BY date DESC) AS 
-    // Rownumber FROM `raw_data` ) results WHERE 
-    // results.Rownumber = 2";
-
     $query = "SELECT * FROM `experiment_info` ORDER BY date DESC LIMIT 1";
 
     $q = mysqli_query($con, $query);

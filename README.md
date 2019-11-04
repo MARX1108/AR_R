@@ -1,5 +1,16 @@
 # AR_R
 
+## 2019.11.4 Updated
+
+1. Updated the first three seconds countdown to be finish in 3 seconds(0.6s delay + 0.8s*3 countdown). Remove the countdown animation (from 3 to 2 to 1) due to content refreshing conflict.
+2. Fix the view that says "5 seconds countdown"
+3. Get rid of # in front of all numbers in Observer View
+4. change the radio buttons from square to round
+5. place the label so that the corresponding number will be right above the middle of label
+6. fix radio selection error. Nothing will be selected at the beginning of the experiment
+7. add confirm button disable functionality. If no radio button is selected, confirm button is disabled.
+8. Add random number functionailty. When clicking rehearsal, the a set of 20 random number will be generated to be display.
+
 ## 2019.11.3 Updated
 
 This is a fully functioning version with database.
