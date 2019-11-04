@@ -3,6 +3,7 @@
     $pselect = "SELECT `p_state` FROM `state`";
     $oselect = "SELECT `o_state` FROM `state`";
     $trial_number = "SELECT `trial_number` FROM `state`";
+    $trial_state = "SELECT `trial_state` FROM `state`";
 
     $presult = mysqli_query($con, $pselect);
     $p = $presult->fetch_assoc();
@@ -16,5 +17,9 @@
     $t = $result->fetch_assoc();
     $result = $t["trial_number"]; 
 
-    echo json_encode(array("pstate" => $presult, "ostate" => $oresult, "trial_number" => $result));
+    $trial_state = mysqli_query($con, $trial_state);
+    $s = $trial_state->fetch_assoc();
+    $trial_state = $s["trial_state"]; 
+
+    echo json_encode(array("pstate" => $presult, "ostate" => $oresult, "trial_number" => $result, "trial_state" => $trial_state));
 ?>

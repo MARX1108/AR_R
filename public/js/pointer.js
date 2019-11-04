@@ -5,6 +5,10 @@ $(document).ready(function () {
 
     step = parseInt($('#step').text());
 
+    // $("body").on('DOMSubtreeModified', "#step", function() {
+    //     countdown(3);
+    // });
+
     // state_inquery();
 });
 
@@ -25,15 +29,17 @@ function sync() {
         dataType: 'json',
         success: function (output) 
         {
-            if (output.pstate == 1)
+            if (parseInt($('#step').text()) == 1 && output.trial_state== 1)
             {
-                countdown(3);
+                console.log("parseInt($('#step').text()) == 1 && output.trial_state== 1");
+                trial_state(0);
+                countdown(3, output.trial_state);
                 setpage("pointer", 2);
                 setTimeout(function(){sync();}, 4000);
             }
             else
             {
-                setTimeout(function(){sync();}, 100);
+                setTimeout(function(){sync();}, 1000);
             }
 
             $('#trial').html(output.trial_number);
@@ -70,15 +76,8 @@ function controller()
     }
 
 
-    // else if (step == 3) 
-    // {
-    //     // send_data('T2');
-    //     setpage("pointer", 4);
-    // }
-
     console.log(step);
-    // console.log(trial);
-    // console.log(observer_step);
+
 }
 
 
@@ -121,6 +120,7 @@ function updateContent(state)
 
 
 function increment_trial_count() {
+    // alert('increment');
     $.ajax({
         url: '../model/trial_number_count.php',
         data: {
@@ -130,15 +130,15 @@ function increment_trial_count() {
         dataType: 'json',
         success: function (output) {
             // alert(output.test);
-            console.log(
-                "experiment_id: ", output.experiment_id,
-                " pointer_ID: ", output.pointer_ID,
-                " observer_ID: ", output.observer_ID,
-                " virtual_type: ", output.virtual_type,
-                " spatial_type: ", output.spatial_type,
-                " rehearsal: ", output.rehearsal,
-                " testing_number_set: ", output.testing_number_set
-            );
+            // console.log(
+            //     "experiment_id: ", output.experiment_id,
+            //     " pointer_ID: ", output.pointer_ID,
+            //     " observer_ID: ", output.observer_ID,
+            //     " virtual_type: ", output.virtual_type,
+            //     " spatial_type: ", output.spatial_type,
+            //     " rehearsal: ", output.rehearsal,
+            //     " testing_number_set: ", output.testing_number_set
+            // );
         },
         error: function (xhr, status, error) {
             alert(xhr.responseText);
@@ -163,19 +163,60 @@ function send_data(data) {
     });
 }
 
-function countdown(time) {
-    var timer = time,
+function countdown(time, trial_state) {
+    if (trial_state == 1)
+    {
+        console.log("countdown started!");
+        var timer = time,
         seconds;
 
-    var x = setInterval(function () {
-        seconds = parseInt(timer % 60, 10);
-        seconds = seconds < 10 ? seconds : seconds;
-        document.getElementById("time").innerHTML = seconds;
-        if (timer == 2) increment_trial_count();
-        console.log(seconds);
-        if (--timer < 0) {
-            send_data('T1');
-            clearInterval(x);
+        var x = setInterval(function () {
+            seconds = parseInt(timer % 60, 10);
+            seconds = seconds < 10 ? seconds : seconds;
+            document.getElementById("time").innerHTML = seconds;
+            if (timer == 2) increment_trial_count();
+            // console.log(seconds);
+            if (--timer < 0) {
+                send_data('T1');
+                clearInterval(x);
+            }
+        }, 1000);
+
+
+        $.ajax({
+            url: '../model/trial_state.php',
+            data: {
+                trial_state: 0
+            },
+            method: 'post',
+            dataType: 'json',
+            success: function (output) {
+                // $('#state > h2').append(" Trial " + output.trial_number);
+            },
+            error: function (xhr, status, error) {
+                // alert(xhr.responseText);
+            }
+        });
+
+    }
+    
+}
+
+function trial_state(state)
+{
+
+    $.ajax({
+        url: '../model/trial_state.php',
+        data: {
+            trial_state: state
+        },
+        method: 'post',
+        dataType: 'json',
+        success: function (output) {
+            // $('#state > h2').append(" Trial " + output.trial_number);
+        },
+        error: function (xhr, status, error) {
+            // alert(xhr.responseText);
         }
-    }, 1000);
+    });
 }

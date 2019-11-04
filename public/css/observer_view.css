@@ -1,35 +1,57 @@
-body{
+body {
     font-family: noyh_bold;
     background-color: #F4F9FD;
     font-family: noyh_bold;
     color: #A1DFFF;
 }
 
-.header
-{
+.header {
     font-family: noyh_bold;
     text-align: center;
     margin-top: 2%;
 }
 
-.header h1, h2
-{
+.header h1,
+h2 {
     font-family: noyh_bold;
     font-size: 300%;
     color: #A1DFFF;
     letter-spacing: 0;
 }
 
-.content
-{
+.content {
     font-family: noyh_bold;
     text-align: center;
 
 }
 
-.content p
-{
-    margin-top: 12%;
+div#label {
+    width: 5%;
+    margin: 0%;
+    padding: 0%;
+    display: inline-block;
+    margin-right: 2%;
+    margin-left: 3%;
+}
+div#label_2 {
+    width: 5%;
+    margin: 0%;
+    padding: 0%;
+    display: inline-block;
+    /* margin-right: 2%; */
+    margin-left: 1%;
+}
+
+.conf_label {
+
+    margin-top: 0% !important;
+    font-size: 200% !important;
+    margin-left: 8%;
+    margin-right: 8%;
+}
+
+.content p {
+    margin-top: 6%;
     font-family: noyh_bold;
     text-align: center;
     display: inline-block;
@@ -44,34 +66,32 @@ body{
     padding: 0.5%;
     color: #64C7FA;
     background-color: Transparent;
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     border: #64C7FA 10px solid;
     margin: 5px;
-    cursor:pointer;
+    cursor: pointer;
     overflow: hidden;
-    outline:none;
+    outline: none;
     border-width: thin;
     border-color: #64C7FA;
 }
 
 
-#btn_number:hover{
+#btn_number:hover {
     font-size: 500%;
     color: rgb(0, 145, 218);
 }
 
-#btn{
+#btn {
     margin-top: 3%;
 }
 
-#state_three_question
-{
+#state_three_question {
     margin-top: 0%;
     font-size: 50%;
 }
 
-#state_three
-{
+#state_three {
     margin-top: 0%;
     margin-bottom: 0%;
     width: 100%;
@@ -86,7 +106,7 @@ body{
     cursor: pointer;
 
     user-select: none;
-  }
+}
 
 .container input {
     position: absolute;
@@ -94,9 +114,9 @@ body{
     cursor: pointer;
     height: 0;
     width: 0;
-  }
+}
 
-  .checkmark {
+.checkmark {
     position: absolute;
     top: 0;
     left: 0;
@@ -104,22 +124,73 @@ body{
     width: 30px;
     background-color: #64C7FA;
     border-radius: 50%;
-  }
+}
 
-  .container:hover input ~ .checkmark {
+.container:hover input~.checkmark {
     background-color: #64C7FA;
-  }
+}
 
-  .container input:checked ~ .checkmark {
+.container input:checked~.checkmark {
     background-color: #2196F3;
-  }
+}
+
+
+/*-------------*/
+.form-radio {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    position: relative;
+    background-color: #f1f1f1;
+    color: #666;
+    top: 10px;
+    height: 30px;
+    width: 30px;
+    border: 0;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-right: 7px;
+    outline: none;
+}
+
+.form-radio:checked::before {
+    position: absolute;
+    /* font: 13px/1 'Open Sans', sans-serif; */
+    left: 11px;
+    top: 7px;
+    content: '\02143';
+    transform: rotate(40deg);
+
+}
+
+.form-radio:hover {
+    background-color: #f7f7f7;
+}
+
+.form-radio:checked {
+    background-color: #f1f1f1;
+}
+
+label {
+    /* font: 15px/1.7 'Open Sans', sans-serif; */
+    font-size: 350%;
+    color: #64c7fa;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: pointer;
+}
+
+.form-radio {
+    border-radius: 3px;
+}
 
 /* extensions------------------------------------------------- */
 
 @font-face {
     font-family: 'noyh_bold';
     src: url('../assets/font/noyhgeometricslim-bold-webfont.woff2') format('woff2'),
-         url('../assets/font/noyhgeometricslim-bold-webfont.woff') format('woff');
+        url('../assets/font/noyhgeometricslim-bold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -128,7 +199,7 @@ body{
 @font-face {
     font-family: 'noyh_bolditalic';
     src: url('../assets/font/noyhgeometricslim-bolditalic-webfont.woff2') format('woff2'),
-         url('../assets/font/noyhgeometricslim-bolditalic-webfont.woff') format('woff');
+        url('../assets/font/noyhgeometricslim-bolditalic-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -137,7 +208,7 @@ body{
 @font-face {
     font-family: 'noyh_regular';
     src: url('../assets/font/noyhgeometricslim-regular-webfont.woff2') format('woff2'),
-         url('../assets/font/noyhgeometricslim-regular-webfont.woff') format('woff');
+        url('../assets/font/noyhgeometricslim-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 

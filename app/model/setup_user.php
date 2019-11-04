@@ -39,18 +39,11 @@ function debug_to_console($data) {
         $rehearsal = htmlentities(mysqli_real_escape_string($con, $temp));
 
 
-        // $t = mysqli_real_escape_string($con, $_POST['rehearsal']);
-        // printf("error messages %s\n", $t);
-        // $rehearsal = htmlentities(mysqli_real_escape_string($con, $_POST['subject_1_name']));
         $temp = date("M,d,Y h:i:s");
         // printf("error messages %s\n", $temp);
         $date = htmlentities(mysqli_real_escape_string($con, $temp)); 
         // $rand = rand(1,2);
-        // debug_to_console("data in subject_1_name: $subject_1_name ;");
-        // debug_to_console("data in subject_2_name: $subject_2_name ;");
-        // debug_to_console("data in virtual_type: $virtual_type ;");
-        // debug_to_console("data in spatial_type: $spatial_type ;");
-        // debug_to_console("data in rehearsal: $rehearsal ;");
+
 
         if($pointer_id == '' || $observer_id == '') 
         {
@@ -74,5 +67,11 @@ function debug_to_console($data) {
             echo "<script>alert('setup unsuccessful, try again!')</script>";
         }
     }
+
+
+    $con = mysqli_connect("localhost", "root", "", "AR_R") or die("Connection was not established");
+    $update="UPDATE `state` SET `trial_state`= '1' " ; 
+    $updating = mysqli_query($con, $update);
+
 
 ?>

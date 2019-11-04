@@ -69,6 +69,7 @@ function controller() {
             // send_data('T4');
             setpage("observer", 1);
             setpage("pointer", 1);
+            trial_state(1);
         } else if (step == 4 && pointer_step == 4 && trial == 20) {
             send_data('T4');
             setpage("observer", 0);
@@ -78,6 +79,24 @@ function controller() {
 
 }
 
+function trial_state(state)
+{
+
+    $.ajax({
+        url: '../model/trial_state.php',
+        data: {
+            trial_state: state
+        },
+        method: 'post',
+        dataType: 'json',
+        success: function (output) {
+            // $('#state > h2').append(" Trial " + output.trial_number);
+        },
+        error: function (xhr, status, error) {
+            // alert(xhr.responseText);
+        }
+    });
+}
 
 function setpage(view, state) {
     $.ajax({

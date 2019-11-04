@@ -5,10 +5,33 @@ $(document).ready(function () {
 function callback(output) {
     alert(output);
 }
+function trial_state(state)
+{
+
+    $.ajax({
+        url: '../model/trial_state.php',
+        data: {
+            trial_state: state
+        },
+        method: 'post',
+        dataType: 'json',
+        success: function (output) {
+            // $('#state > h2').append(" Trial " + output.trial_number);
+        },
+        error: function (xhr, status, error) {
+            // alert(xhr.responseText);
+        }
+    });
+}
 
 function control(command) {
     // $('.body').replaceWith('');
     console.log("clicked");
+    if(command == "reset")
+    {
+        trial_state(0);
+    }
+
     $.ajax({
         url: '../model/moderator.php',
         data: {

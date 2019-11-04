@@ -14,7 +14,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-    <script src="<?= BASE_URL ?>/public/js/jquery-3.4.1.min.js"></script>
+    <script src="../../public/js/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../../public/css/moderator_view.css">
     <script src="../../public/js/moderator.js" > </script>
 </head>

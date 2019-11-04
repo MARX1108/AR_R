@@ -17,8 +17,6 @@
     <!-- <meta http-equiv="refresh" content="1" > -->
     <!-- <script  src = "../../public/js/require.js"></script> -->
     <script  src = "../../public/js/jquery-3.4.1.js"></script>
-    <script src="<?= BASE_URL ?>/public/js/jquery-3.4.1.min.js"></script>
-	<!-- <script src="<?= BASE_URL ?>/public/js/scripts.js"></script> -->
     <script src="../../public/js/pointer.js"></script>
 </head>
 

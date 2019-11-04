@@ -15,8 +15,6 @@
     <link rel="stylesheet" type = "text/css" href="../../public/css/observer_view.css">
     <!-- <meta http-equiv="refresh" content="1" > -->
     <script  src = "../../public/js/jquery-3.4.1.js"></script>
-    <script src="<?= BASE_URL ?>/public/js/jquery-3.4.1.min.js"></script>
-    <!-- <script  src = "../../public/js/pointer.js"></script> -->
 
     <script src = "../../public/js/observer.js"> </script>
 
@@ -30,7 +28,7 @@
     <h1 id="demo"></h1>
 
     <div class = "header" id = "state">
-    <h1>Pointer View</h1>
+    <h1>Observer View</h1>
         <h2>Trial <a id = "trial"></a></h2>
         <h2>Step <a id = "step"></a></h2>
         <a id = "pointer_step" hidden></a>
