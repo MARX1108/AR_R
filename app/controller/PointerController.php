@@ -14,4 +14,4 @@ class NewsController
 
 }
 
-echo "test"; 
+// echo "test"; 

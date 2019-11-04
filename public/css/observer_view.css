@@ -1,8 +1,8 @@
 body {
     font-family: noyh_bold;
-    background-color: #F4F9FD;
+    background-color: #ffffff;
     font-family: noyh_bold;
-    color: #A1DFFF;
+    color: #006ca2ab;
 }
 
 .header {
@@ -15,7 +15,7 @@ body {
 h2 {
     font-family: noyh_bold;
     font-size: 300%;
-    color: #A1DFFF;
+    color: #006ca2ab;
     letter-spacing: 0;
 }
 
@@ -56,7 +56,7 @@ div#label_2 {
     text-align: center;
     display: inline-block;
     font-size: 400%;
-    color: #64C7FA;
+    color: #006ca2;
     letter-spacing: 0;
 
 }
@@ -64,16 +64,16 @@ div#label_2 {
 #btn_number {
     font-size: 500%;
     padding: 0.5%;
-    color: #64C7FA;
+    color: #006ca2;
     background-color: Transparent;
     background-repeat: no-repeat;
-    border: #64C7FA 10px solid;
+    border: #006ca2 10px solid;
     margin: 5px;
     cursor: pointer;
     overflow: hidden;
     outline: none;
     border-width: thin;
-    border-color: #64C7FA;
+    border-color: #006ca2;
 }
 
 
@@ -122,12 +122,12 @@ div#label_2 {
     left: 0;
     height: 30px;
     width: 30px;
-    background-color: #64C7FA;
+    background-color: #006ca2;
     border-radius: 50%;
 }
 
 .container:hover input~.checkmark {
-    background-color: #64C7FA;
+    background-color: #006ca2;
 }
 
 .container input:checked~.checkmark {
@@ -137,8 +137,8 @@ div#label_2 {
 
 /*-------------*/
 .form-radio {
-    -webkit-appearance: none;
-    -moz-appearance: none;
+    /* -webkit-appearance: none; */
+    /* -moz-appearance: none; */
     appearance: none;
     display: inline-block;
     position: relative;
@@ -154,15 +154,15 @@ div#label_2 {
     outline: none;
 }
 
-.form-radio:checked::before {
-    position: absolute;
+/* .form-radio:checked::before { */
+    /* position: absolute; */
     /* font: 13px/1 'Open Sans', sans-serif; */
-    left: 11px;
-    top: 7px;
-    content: '\02143';
-    transform: rotate(40deg);
+    /* left: 11px; */
+    /* top: 7px; */
+    /* content: '\02143'; */
+    /* transform: rotate(40deg); */
 
-}
+/* } */
 
 .form-radio:hover {
     background-color: #f7f7f7;
@@ -175,7 +175,7 @@ div#label_2 {
 label {
     /* font: 15px/1.7 'Open Sans', sans-serif; */
     font-size: 350%;
-    color: #64c7fa;
+    color: #006ca2;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     cursor: pointer;
