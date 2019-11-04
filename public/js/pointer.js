@@ -2,14 +2,8 @@ $(document).ready(function () {
     sync();
     setpage("pointer", 0);
     setpage("observer", 0);
-
     step = parseInt($('#step').text());
 
-    // $("body").on('DOMSubtreeModified', "#step", function() {
-    //     countdown(3);
-    // });
-
-    // state_inquery();
 });
 
 $(document).on("keypress", function (e) {
