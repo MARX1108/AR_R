@@ -26,29 +26,10 @@ function sync() {
             $('#step').html(output.pstate);
             $('#observer_step').html(output.ostate);
 
-            if (parseInt($('#step').text()) == 1 && output.trial_state == 1) 
-            {
-                console.log("parseInt($('#step').text()) == 1 && output.trial_state== 1");
-                updateContent(1);
-                trial_state(0);
-                countdown(3, output.trial_state);
-                setTimeout(function () {
-                    sync();
-                }, 3000);
-            }
-            else
-            {
-                updateContent(output.pstate);
-                setTimeout(function () {
-                    sync();
-                }, 1000);
-            }
-
-            
-
-            
-            
-            
+            updateContent(output.pstate);
+            setTimeout(function () {
+                sync();
+            }, 100);
 
         },
         error: function (xhr, status, error) {
@@ -62,8 +43,15 @@ function controller() {
     var trial = parseInt($('#trial').text());
     var observer_step = parseInt($('#observer_step').text());
     if (trial != -1) {
+
         if (step == 0) {
             setpage("pointer", 1);
+            increment_trial_count();
+        } else if (step == 1) {
+            send_data('T1');
+            setpage("pointer", 2);
+            trial_state(0);
+
         } else if (step == 2 && observer_step == 1) {
             send_data('T2');
             setpage("pointer", 3);
@@ -123,18 +111,7 @@ function increment_trial_count() {
         },
         method: 'post',
         dataType: 'json',
-        success: function (output) {
-            // alert(output.test);
-            // console.log(
-            //     "experiment_id: ", output.experiment_id,
-            //     " pointer_ID: ", output.pointer_ID,
-            //     " observer_ID: ", output.observer_ID,
-            //     " virtual_type: ", output.virtual_type,
-            //     " spatial_type: ", output.spatial_type,
-            //     " rehearsal: ", output.rehearsal,
-            //     " testing_number_set: ", output.testing_number_set
-            // );
-        },
+        success: function (output) {},
         error: function (xhr, status, error) {
             alert(xhr.responseText);
         }
@@ -194,9 +171,7 @@ function countdown(time, trial_state) {
             }
         });
 
-    }
-    else
-    {
+    } else {
         alert("Invalid start. Please reset the experiment to start");
     }
 

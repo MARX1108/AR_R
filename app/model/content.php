@@ -51,23 +51,23 @@ function p_view($state)
 
     if ($state == 0)
     {
-        return "<p id = 'main'> When you are ready to start</br> press ENTER </p>";
+        return "<p id = 'main'> When you are ready to start</br> press ENTER. </p>";
     }
     else if ($state == 1)
     {
-        return "<p id = 'main'> 3 seconds count down </br> The number will show up in <span id='time'>3</span> seconds...</p>";
+        return "<p id = 'main'> When you are ready, Press Enter to start the next trial. </br> A number will show up after you pressed Enter.</p>";
     }
     else if ($state == 2)
     {
-        return "<p id = 'main'>$result</br> Press the key when you finish pointing</p>";
+        return "<p id = 'main'>$result</br> Press ENTER when you finish pointing.</p>";
     }
     else if ($state == 3)
     {
-        return "<p id = 'main'> Please keep your dominant hand still</p>";
+        return "<p id = 'main'> Please keep your dominant hand still.</p>";
     }
     else
     {
-        return "<p id = 'main'> Please pull back your hand </br> Current trial finished </br> Please wait for instructions</p>";
+        return "<p id = 'main'> Please pull back your hand. </br> Current trial finished. </br> Please wait for instructions.</p>";
     }
 
 }
@@ -76,17 +76,17 @@ function o_view($state)
 {
     if ($state == 0)
     {
-        return "<p id = 'main'> When you are ready to start</br> press ENTER</p>";
+        return "<p id = 'main'> When you are ready to start.</br> press ENTER.</p>";
     }
     else if ($state == 1)
     {
-        return "<p>Waiting for instruction</p>";
+        return "<p>Waiting for instruction.</p>";
     }
     else if ($state == 2)
     {
-        return "<p> Look at the table 
-        </br> See which number is the cube that the pointer is pointing at
-        </br> Click ENTER when you have made your choice
+        return "<p> Look at the table. 
+        </br> See which number is the cube that the pointer is pointing at.
+        </br> Press ENTER when you have made your choice.
         </p>";
         
     }
@@ -128,34 +128,12 @@ function o_view($state)
             </div>
             
             "; 
-            // <form action='' method = 'post'>
-            // </form>
-        
-            // <a onclick = 'identified_number_submit()'  style='
-            // color: #64C7FA;
-            // text-decoration: none;
-            // background-color: transparent;
-            // background: white;
-            // font-size: 250%;
-            // padding: 1.5%;
-            // border-radius: 29px;'>
-            // Confirm</a>
-
-            // <input type = 'radio' id = 'btn_number' name = 'selected_num' value = '1' >#1</input>
-            // <input type = 'radio' id = 'btn_number'  name = 'selected_num' value = '2'>#2</input>
-            // <input type = 'radio' id = 'btn_number'  name = 'selected_num' value = '3'>#3</input>
-            // <input type = 'radio' id = 'btn_number'  name = 'selected_num' value = '4'>#4</input>
-            // <input type = 'radio' id = 'btn_number'  name = 'selected_num' value = '5'>#5</input>
-            // <input type = 'radio' id = 'btn_number'  name = 'selected_num' value = '6'>#6</input>
-            // <input type = 'radio' id = 'btn_number'  name = 'selected_num' value = '7'>#7</input>
-            // <input type = 'radio' id = 'btn_number'  name = 'selected_num' value = '8'>#8</input>
-            // <input type = 'radio' id = 'btn_number'  name = 'selected_num' value = '9'>#9</input>
     }
     else 
     {
         return "
 
-        <p> Please rate the confidence level of your observation </p>
+        <p> Please rate the confidence level of your observation. </p>
         <div id = 'btn'>
         
         <div id = 'label'><input type='radio' name='confidence' value='1' id='btn_number-one' class='form-radio' ><label for='radio-one'>1</label></div>

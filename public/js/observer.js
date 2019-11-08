@@ -4,22 +4,6 @@ $(document).ready(function () {
     setpage("pointer", 0);
     step = parseInt($('#step').text());
 
-    // state_inquery();
-
-
-    // var checker = document.getElementById('btn_number-one');
-    // var sendbtn = document.getElementById('confirmBtn');
-    // // when unchecked or checked, run the function
-    // checker.onchange = function () {
-    //     console.log("onchange");
-    //     if (this.checked) {
-    //         sendbtn.disabled = false;
-    //     } else {
-    //         sendbtn.disabled = true;
-    //     }
-    // };
-
-
 
 });
 
@@ -82,14 +66,31 @@ function controller() {
             setpage("observer", 1);
             setpage("pointer", 1);
             trial_state(1);
+            increment_trial_count();
         } else if (step == 4 && pointer_step == 4 && trial == 20) {
-            send_data('T4');
             setpage("observer", 0);
             setpage("pointer", 0);
         }
     }
 
 }
+
+function increment_trial_count() {
+    // alert('increment');
+    $.ajax({
+        url: '../model/trial_number_count.php',
+        data: {
+
+        },
+        method: 'post',
+        dataType: 'json',
+        success: function (output) {},
+        error: function (xhr, status, error) {
+            alert(xhr.responseText);
+        }
+    });
+}
+
 
 function trial_state(state) {
 
@@ -195,8 +196,7 @@ function send_data(data) {
 function identified_number_submit() {
     number = parseInt($('input[name=selected_num]:checked').val());
     console.log(number);
-    if(!isNaN(number))
-    {
+    if (!isNaN(number)) {
         $.ajax({
             url: '../model/selected_num.php',
             data: {
@@ -214,7 +214,7 @@ function identified_number_submit() {
                         method: 'post',
                         dataType: 'json',
                         success: function (output) {
-    
+
                             $('#trial').html(output.trial_number);
                             $('#step').html(output.ostate);
                             $('#pointer_step').html(output.pstate);
@@ -225,63 +225,62 @@ function identified_number_submit() {
                         }
                     });
                 }, 1000);
-    
+
             },
             error: function (xhr, status, error) {
                 alert(xhr.responseText);
             }
         });
+    } else {
+        $('#confirmBtn').css({
+            'color': '#eff0f1'
+        });
     }
-    else
-    {
-        $('#confirmBtn').css({'color' : '#eff0f1'});
-    }
-    
+
 }
 
 
 function confidence_level() {
     number = parseInt($('input[name=confidence]:checked').val());
     console.log(number);
-    if(!isNaN(number))
-    {
-    $.ajax({
-        url: '../model/confidence_level.php',
-        data: {
-            confidence: number
-        },
-        method: 'post',
-        success: function () {
-            controller();
-            setTimeout(function () {
-                $.ajax({
-                    url: '../model/sync.php',
-                    data: {
-                        instruction: ' '
-                    },
-                    method: 'post',
-                    dataType: 'json',
-                    success: function (output) {
-                        $('#trial').html(output.trial_number);
-                        $('#step').html(output.ostate);
-                        $('#pointer_step').html(output.pstate);
-                        updateContent(output.ostate);
-                    },
-                    error: function (xhr, status, error) {
-                        alert(xhr.responseText);
-                    }
-                });
-            }, 1000);
+    if (!isNaN(number)) {
+        $.ajax({
+            url: '../model/confidence_level.php',
+            data: {
+                confidence: number
+            },
+            method: 'post',
+            success: function () {
+                controller();
+                setTimeout(function () {
+                    $.ajax({
+                        url: '../model/sync.php',
+                        data: {
+                            instruction: ' '
+                        },
+                        method: 'post',
+                        dataType: 'json',
+                        success: function (output) {
+                            $('#trial').html(output.trial_number);
+                            $('#step').html(output.ostate);
+                            $('#pointer_step').html(output.pstate);
+                            updateContent(output.ostate);
+                        },
+                        error: function (xhr, status, error) {
+                            alert(xhr.responseText);
+                        }
+                    });
+                }, 1000);
 
-        },
-        error: function (xhr, status, error) {
-            alert(xhr.responseText);
-        }
-    });
-}
-else
-{
-    $('#confirmBtn').css({'color' : '#eff0f1'});
-}
+            },
+            error: function (xhr, status, error) {
+                alert(xhr.responseText);
+            }
+        });
+    } else {
+        $('#confirmBtn').css({
+            'color': '#eff0f1'
+        });
+    }
 
 }
