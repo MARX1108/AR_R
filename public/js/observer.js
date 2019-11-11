@@ -3,8 +3,6 @@ $(document).ready(function () {
     setpage("observer", 0);
     setpage("pointer", 0);
     step = parseInt($('#step').text());
-
-
 });
 
 $(document).on("keypress", function (e) {
@@ -24,14 +22,16 @@ function sync() {
         dataType: 'json',
         success: function (output) {
 
-
-            setTimeout(function () {
-                sync();
-            }, 1000);
-
-            if (output.ostate == 2 || output.ostate == 0) {
+ 
+                setTimeout(function () {
+                    sync();
+                }, 1000);
+            
+            if (output.ostate == 1 || output.ostate == 2 || output.ostate == 0) {
                 updateContent(output.ostate);
             }
+
+            
 
             $('#trial').html(output.trial_number);
             $('#step').html(output.ostate);
@@ -53,21 +53,44 @@ function controller() {
         if (step == 0 && pointer_step <= 2) {
             setpage("observer", 1);
             updateContent(1);
-        } else if (step == 2 && pointer_step == 3) {
+        }
+        else if (step == 2 && pointer_step == 3) {
             send_data('T3');
             setpage("observer", 3);
             updateContent(3);
             setpage("pointer", 4);
-        } else if (step == 3) {
-            send_data('T4');
-            setpage("observer", 4);
-            updateContent(4);
-        } else if (step == 4 && pointer_step == 4 && trial != 20) {
-            setpage("observer", 1);
-            setpage("pointer", 1);
-            trial_state(1);
-            increment_trial_count();
-        } else if (step == 4 && pointer_step == 4 && trial == 20) {
+        } else if (step == 3) 
+        {
+            if(!isNaN(parseInt($('input[name=selected_num]:checked').val())))
+            {
+                send_data('T4');
+                identified_number_submit();
+                setpage("observer", 4);
+                updateContent(4);
+            }
+            else
+            {
+                alert("You didn't select any number.\n Press Enter to dismiss the alert.");
+            }
+            
+        } else if (step == 4 && pointer_step == 4 && trial != 20) 
+        {
+            if(!isNaN(parseInt($('input[name=confidence]:checked').val())))
+            {
+                confidence_level();
+                setpage("observer", 1);
+                setpage("pointer", 1);
+                trial_state(1);
+                increment_trial_count();
+            }
+            else
+            {
+                alert("You didn't select any number.\n Press Enter to dismiss the alert.");
+            }
+           
+        } else if (step == 4 && pointer_step == 4 && trial == 20) 
+        {
+            confidence_level();
             setpage("observer", 0);
             setpage("pointer", 0);
         }
@@ -204,7 +227,7 @@ function identified_number_submit() {
             },
             method: 'post',
             success: function () {
-                controller();
+                // controller();
                 setTimeout(function () {
                     $.ajax({
                         url: '../model/sync.php',
@@ -218,7 +241,7 @@ function identified_number_submit() {
                             $('#trial').html(output.trial_number);
                             $('#step').html(output.ostate);
                             $('#pointer_step').html(output.pstate);
-                            updateContent(output.ostate);
+                            // updateContent(output.ostate);
                         },
                         error: function (xhr, status, error) {
                             alert(xhr.responseText);
@@ -238,6 +261,7 @@ function identified_number_submit() {
     }
 
 }
+
 
 
 function confidence_level() {
@@ -251,7 +275,7 @@ function confidence_level() {
             },
             method: 'post',
             success: function () {
-                controller();
+                // controller();
                 setTimeout(function () {
                     $.ajax({
                         url: '../model/sync.php',
@@ -284,3 +308,5 @@ function confidence_level() {
     }
 
 }
+
+

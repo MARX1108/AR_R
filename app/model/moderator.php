@@ -21,9 +21,9 @@ function start_all()
 {
     $con = mysqli_connect("localhost", "root", "", "AR_R") or die("Connection was not established");
     
-    $update="UPDATE `state` SET `p_state`= '0' " ; 
+    $update="UPDATE `state` SET `p_state`= '1' " ; 
     mysqli_query($con, $update);
-    $update="UPDATE `state` SET `o_state`= '0' " ; 
+    $update="UPDATE `state` SET `o_state`= '1' " ; 
     mysqli_query($con, $update);
     $update="UPDATE `state` SET `trial_number`= '0' " ; 
     mysqli_query($con, $update);

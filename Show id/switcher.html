@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="switcher.css">
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<div id="topBar">
+			<input type="search" id="search" autocomplete="off" placeholder="Filter open tabs">
+		</div>
+		<ul id="tabs"></ul>
+		<div id="actionBar">
+			<div id="messageLabel"><span class="placeholder"></span> matching</div>
+			<div id="buttonWrapper">
+				<button data-commands="close" title="Close tabs">Close tabs</button>
+				<button id="button-menu" title="More actions">⋮</button>
+			</div>
+		</div>
+		<div id="actionMenu">
+			<button data-commands="deduplicate" title="Close duplicate tabs">Close duplicate tabs</button>
+			<button data-commands="sort" title="Sort tabs alphabetically">Sort tabs</button>
+			<button data-commands="reload" title="Sort tabs alphabetically">Reload tabs</button>
+			<button data-commands="detach" title="Move tabs to a separate window">Move tabs to new window</button>
+		</div>
+		<script src="fuse.js"></script>
+		<script src="switcher.js"></script>
+		<div id="filterMessage">The filter does not match any tabs.</div>
+	</body>
+</html>

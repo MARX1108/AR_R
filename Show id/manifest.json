@@ -1,0 +1,37 @@
+{
+   "author": "Kalle Persson",
+   "background": {
+      "persistent": true,
+      "scripts": [ "background.js" ]
+   },
+   "browser_action": {
+      "default_popup": "switcher.html"
+   },
+   "commands": {
+      "_execute_browser_action": {
+         "suggested_key": {
+            "default": "Ctrl+Shift+K"
+         }
+      }
+   },
+   "description": "Rapidly filter and switch between windows & tabs",
+   "homepage_url": "http://flowapps.co/tabswitcher",
+   "icons": {
+      "128": "icons/icon-128.png",
+      "16": "icons/icon-16.png",
+      "19": "icons/icon-19.png",
+      "256": "icons/icon-256.png",
+      "38": "icons/icon-38.png",
+      "48": "icons/icon-48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu1zeF6Kc93YQLkWth4zcjjaz/4rdsQhjCI75AFCu4DDUCezXKN1xOH4fqDM4rnHOY8iOXBPG8IGK8xtVtFFn8HdYv+zUZGD+2IckfNZkhwHo8gaUQmE2BNSgGP9j4unXVqmK9vNnpeg/0KPw3vFXw9UK08BGpHJmuAURJCCcE/LS8/5jbrp8/PjswOsoja1OvD1pf7X2Rp2a1uLXTvGM4rOhqi04CmKzPMFBIduAhFwiEyblTCknmA8+8Zg9Ffi4sPRoV7RXQBYXZcNXQpzG8o+0DXALoWSBV8kYrCzEzVyx9QwHDHuVMfHWhoNSjAkoq/3BvVV0NFSFWkyo50eN9wIDAQAB",
+   "manifest_version": 2,
+   "name": "View_Switcher_v2",
+   "options_ui": {
+      "open_in_tab": false,
+      "page": "options.html"
+   },
+   "permissions": [ "tabs", "storage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "2.1.1"
+}

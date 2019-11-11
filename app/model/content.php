@@ -55,7 +55,7 @@ function p_view($state)
     }
     else if ($state == 1)
     {
-        return "<p id = 'main'> When you are ready, Press Enter to start the next trial. </br> A number will show up after you pressed Enter.</p>";
+        return "<p id = 'main'>Press Enter to start the next trial. </br> A number will show up.</p>";
     }
     else if ($state == 2)
     {
@@ -63,11 +63,11 @@ function p_view($state)
     }
     else if ($state == 3)
     {
-        return "<p id = 'main'> Please keep your dominant hand still.</p>";
+        return "<p id = 'main'>  Keep your  hand still.</p>";
     }
     else
     {
-        return "<p id = 'main'> Please pull back your hand. </br> Current trial finished. </br> Please wait for instructions.</p>";
+        return "<p id = 'main'>  Pull back your hand. </br> </p>";
     }
 
 }
@@ -84,8 +84,7 @@ function o_view($state)
     }
     else if ($state == 2)
     {
-        return "<p> Look at the table. 
-        </br> See which number is the cube that the pointer is pointing at.
+        return "<p>  Identify the number the pointer is pointing at
         </br> Press ENTER when you have made your choice.
         </p>";
         
@@ -93,6 +92,7 @@ function o_view($state)
     else if ($state == 3)
     {
         return "
+            
             <div id = 'btn'>
             <div id = 'label_2'><input type='radio' name='selected_num' value='1' id='btn_number-one' class='form-radio' ><label for='radio-one'>1</label></div>
             <div id = 'label_2'><input type='radio' name='selected_num' value='2' id='btn_number-one' class='form-radio' ><label for='radio-one'>2</label></div>
@@ -112,28 +112,30 @@ function o_view($state)
             <div id = 'label_2'><input type='radio' name='selected_num' value='15' id='btn_number-one' class='form-radio' ><label for='radio-one'>15</label></div>
             <div id = 'label_2'><input type='radio' name='selected_num' value='16' id='btn_number-one' class='form-radio' ><label for='radio-one'>16</label></div>
             </div>
-            
-            <div class='text-center small' style= 'margin-top: 7%;'>
-            <button id = 'confirmBtn' onclick = 'identified_number_submit()' style='
-            color: #64C7FA;
-            text-decoration: none;
-            background-color: transparent;
-            background: white;
-            font-size: 250%;
-            padding: 1.5%;
-            border-radius: 29px;
-            border: #64C7FA;'
-            
-            > Confirm </button>
-            </div>
+            <p> Select the number you identified. </br> Press Enter to Comfirm. </p>
+
             
             "; 
+
+            // <div class='text-center small' style= 'margin-top: 7%;'>
+            // <button id = 'confirmBtn' onclick = 'identified_number_submit()' style='
+            // color: #64C7FA;
+            // text-decoration: none;
+            // background-color: transparent;
+            // background: white;
+            // font-size: 250%;
+            // padding: 1.5%;
+            // border-radius: 29px;
+            // border: #64C7FA;'
+            
+            // > Confirm </button>
+            // </div>
     }
     else 
     {
         return "
 
-        <p> Please rate the confidence level of your observation. </p>
+        
         <div id = 'btn'>
         
         <div id = 'label'><input type='radio' name='confidence' value='1' id='btn_number-one' class='form-radio' ><label for='radio-one'>1</label></div>
@@ -151,19 +153,8 @@ function o_view($state)
         <p class = 'conf_label'>Very confident</p>
         </div>
 
-        <div class='text-center small' style= 'margin-top: 7%;'>
-        <button id = 'confirmBtn' onclick = 'confidence_level()' style='
-        color: #64C7FA;
-        text-decoration: none;
-        background-color: transparent;
-        background: white;
-        font-size: 250%;
-        padding: 1.5%;
-        border-radius: 29px;
-        border: #64C7FA;' 
-        
-        > Confirm </button>
-        </div>
+        <p> Please rate the confidence level of your observation. </br> Press Enter to Comfirm. </p> 
+
 
         ";
     }

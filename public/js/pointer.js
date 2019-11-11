@@ -48,6 +48,7 @@ function controller() {
             setpage("pointer", 1);
             increment_trial_count();
         } else if (step == 1) {
+            increment_trial_count();
             send_data('T1');
             setpage("pointer", 2);
             trial_state(0);

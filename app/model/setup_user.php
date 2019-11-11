@@ -83,7 +83,6 @@ function debug_to_console($data) {
         }
         $rehearsal = htmlentities(mysqli_real_escape_string($con, $temp));
 
-
         $temp = date("M,d,Y h:i:s");
         // printf("error messages %s\n", $temp);
         $date = htmlentities(mysqli_real_escape_string($con, $temp)); 

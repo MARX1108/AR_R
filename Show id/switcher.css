@@ -1,0 +1,351 @@
+body {
+	box-sizing: border-box;
+	min-width: 500px;
+	font-family: Roboto, system-ui, sans-serif;
+	background: #fff;
+}
+
+*, * {
+	margin: 0;
+	padding: 0;
+}
+
+#topBar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 10;
+	background: #fff;
+}
+
+.scrolled #topBar {
+	box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+}
+
+#search {
+	display: block;
+	width: 98%;
+	padding: 5px 10px;
+	outline: 0;
+	font-size: 13px;
+	margin: 5px 5px;
+	box-sizing: border-box;
+	background: #fff;
+	border: 2px solid #ccc;
+	border-radius: 10px;
+}
+
+#tabs {
+	clear: both;
+	min-height: 300px;
+	padding: 40px 0 56px 0;
+}
+
+#filterMessage {
+	position: absolute;
+	top: 32px;
+	left: 0;
+	bottom: 32px;
+	right: 0;
+	pointer-events: none;
+	line-height: 300px;
+	text-align: center;
+	display: none;
+}
+
+#filterMessage.visible {
+	display: block;
+}
+
+li {
+	list-style: none;
+	padding: 5px 24px 5px 10px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	position: relative;
+	font-size: 13px;
+}
+
+li div {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	pointer-events: none;
+}
+
+li.dragging {
+	opacity: 0.5;
+}
+
+li.dropTarget:before {
+	content: "";
+	display: block;
+	width: 100%;
+	position: absolute;
+	width: 110%;
+	background: #a4c8ff;
+	height: 2px;
+	bottom: -2px;
+	left: -10px;
+}
+
+li.selected.dropTarget {
+	background-color: #fff;
+}
+
+li.selected.dropTarget button,
+li.dropTarget:hover button {
+	opacity: 0;
+}
+
+li.newWindow {
+	border-top: 24px solid #fff;
+}
+
+li.newWindow::after {
+	position: absolute;
+	top: -12px;
+	height: 12px;
+	left: 12px;
+	right: 24px;
+	display: block;
+	background: linear-gradient(#ddd, #eee);
+	background: #fff;
+	border-top: 1px solid #ddd;
+	content: "";
+}
+
+li.selected {
+	background-color: #eee;
+}
+
+li img {
+	width: 16px;
+	height: 16px;
+	margin-right: 5px;
+	vertical-align: middle;
+}
+
+li img, li span {
+	pointer-events: none;
+}
+
+li button {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	display: block;
+	width: 24px;
+	font-size: 12px;
+	font-weight: bold;
+	border: 0;
+	opacity: 0.1;
+	padding-right: 8px;
+	width: 48px;
+	text-align: right;
+	background: transparent;
+	pointer-events: all;
+}
+
+li.selected button,
+li:hover button {
+	opacity: 1;
+}
+
+#actionBar {
+	padding: 7px 5px 0 5px;
+	box-sizing: border-box;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: #fff;
+	color: #fff;
+	box-shadow: -1px 0 1px rgba(0,0,0,0.3);
+	text-align: right;
+	display: none;
+	height: 48px;
+	display: block;
+}
+
+#actionBar.visible {
+	display: block;
+}
+
+#buttonWrapper {
+	text-align: right;
+	padding-right: 38px;
+}
+
+#actionBar button {
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	padding: 8px 16px;
+	font-size: 10px;
+	font-weight: bold;
+	border-radius: 5px;
+	display: inline-block;
+	background: #fff;
+	color: #777;
+	margin: 0 2px;
+	height: 32px;
+	cursor: pointer;
+}
+
+#actionBar button:focus,
+#actionBar button:hover {
+	color: #333;
+	background-color: #eee;
+	border-color: #bbb;
+}
+
+#actionBar button:active {
+	background-color: rgba(66, 133, 244, 0.2);
+}
+
+#actionBar #button-menu {
+	position: fixed;
+	display: block;
+	bottom: 9px;
+	right: 4px;
+	font-size: 22px;
+	line-height: 24px;
+	height: 32px;
+	width: 32px;
+	padding: 0;
+	border: 0;
+	margin: 0;
+	background: transparent;
+	border-radius: 22px;
+	color: #888;
+}
+
+#actionBar #button-menu:hover,
+#actionBar #button-menu:active {
+	color: #333;
+	background: #eee;
+}
+
+#messageLabel {
+	position: absolute;
+	top: 16px;
+	left: 16px;
+	display: block;
+	color: #bbb;
+	font-size: 12px;
+}
+
+#actionMenu {
+	position: fixed;
+	bottom: 38px;
+	right: 8px;
+	width: 200px;
+	background: #fff;
+	border: 1px solid #ccc;
+	box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+	border-radius: 5px;
+	display: none;
+	overflow: hidden;
+}
+
+#actionMenu.active {
+	display: block;
+}
+
+#actionMenu button {
+	display: block;
+	width: 100%;
+	text-align: left;
+	font-size: 12px;
+	padding: 12px 12px;
+	border: 0;
+	background: transparent;
+}
+#actionMenu button:hover {
+	background-color: #eee;
+}
+
+@media (prefers-color-scheme: dark) {
+	body,
+	#topBar {
+		background: #292A2D;
+	}
+
+	#search {
+		background: #202124;
+		border-color: #636366;
+		color: #fff;
+	}
+
+	li {
+		color: #fff;
+	}
+
+	li.selected.dropTarget {
+		background: transparent;
+	}
+
+
+	li.newWindow {
+		border-top: 24px solid #222;
+	}
+
+	li.newWindow::after {
+		background: linear-gradient(#444, #333);
+		background: #222;
+	}
+
+	li.selected {
+		background-color: #454649;
+	}
+
+	li button {
+		color: #bbb;
+	}
+
+	#actionBar {
+		background-color: transparent;
+		box-shadow: -1px 0 1px rgba(0,0,0,0.7);
+	}
+
+	#actionBar button {
+		border-color: transparent;
+		background: transparent;
+		color: #eee;
+	}
+
+	#actionBar button:focus,
+	#actionBar button:hover {
+		color: #fff;
+		background-color: #333;
+		border-color: transparent;
+	}
+
+	#actionBar #button-menu:hover,
+	#actionBar #button-menu:active {
+		background-color: #333;
+		color: #fff;
+	}
+
+	#actionBar button:active {
+		background-color: #eee;
+	}
+
+	#actionMenu {
+		background: #222;
+		border-color: #000;
+	}
+
+	#actionMenu button {
+		color: #fff;
+	}
+
+	#actionMenu button:hover {
+		background-color: #333;
+	}
+
+	#filterMessage {
+		color: #fff;
+	}
+}
