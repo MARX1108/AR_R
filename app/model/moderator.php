@@ -27,6 +27,8 @@ function start_all()
     mysqli_query($con, $update);
     $update="UPDATE `state` SET `trial_number`= '0' " ; 
     mysqli_query($con, $update);
+    
+    include_once "trial_number_count.php";
 }
 
 

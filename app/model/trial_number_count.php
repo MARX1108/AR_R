@@ -14,8 +14,6 @@ if($result != -1)
     $insert_new_row = "INSERT INTO `raw_data`(`trial_number`) VALUES ($result)";
     mysqli_query($con, $insert_new_row);
     
-
-
     $query = "SELECT * FROM `experiment_info` ORDER BY date DESC LIMIT 1";
 
     $q = mysqli_query($con, $query);

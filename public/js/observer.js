@@ -1,7 +1,10 @@
+var currentState = 0 ;
 $(document).ready(function () {
+
+    
     sync();
-    setpage("observer", 0);
-    setpage("pointer", 0);
+    setpage("observer", currentState);
+    setpage("pointer", currentState);
     step = parseInt($('#step').text());
 });
 
@@ -27,10 +30,15 @@ function sync() {
                     sync();
                 }, 1000);
             
-            if (output.ostate == 1 || output.ostate == 2 || output.ostate == 0) {
+                if(currentState != output.ostate){
+                    updateContent(output.ostate);
+                    currentState = output.ostate;
+                }/*
+            if (output.ostate != 3 && output.ostate != 4 ) {
+                // console.log("step 4");
                 updateContent(output.ostate);
             }
-
+*/
             
 
             $('#trial').html(output.trial_number);
@@ -54,7 +62,7 @@ function controller() {
             setpage("observer", 1);
             updateContent(1);
         }
-        else if (step == 2 && pointer_step == 3) {
+        else if (step == 2 ) {
             send_data('T3');
             setpage("observer", 3);
             updateContent(3);
@@ -78,10 +86,11 @@ function controller() {
             if(!isNaN(parseInt($('input[name=confidence]:checked').val())))
             {
                 confidence_level();
-                setpage("observer", 1);
-                setpage("pointer", 1);
+               
                 trial_state(1);
                 increment_trial_count();
+                setpage("observer", 1);
+                setpage("pointer", 1);
             }
             else
             {
@@ -98,7 +107,7 @@ function controller() {
 
 }
 
-function increment_trial_count() {
+function increment_trial_count(successFunc) {
     // alert('increment');
     $.ajax({
         url: '../model/trial_number_count.php',
@@ -107,10 +116,12 @@ function increment_trial_count() {
         },
         method: 'post',
         dataType: 'json',
-        success: function (output) {},
+        success: function(){
+            console.log("success");
+            // successFunc();
+        },
         error: function (xhr, status, error) {
-            alert(xhr.responseText);
-        }
+            alert(xhr.responseText);}
     });
 }
 
@@ -134,6 +145,7 @@ function trial_state(state) {
 }
 
 function setpage(view, state) {
+    console.log("view:" +view + " currentState:" + currentState + " toState:" +state);
     $.ajax({
         url: '../model/manual.php',
         data: {

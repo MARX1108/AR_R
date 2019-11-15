@@ -3,6 +3,26 @@ $(document).ready(function () {
     setpage("pointer", 0);
     setpage("observer", 0);
     step = parseInt($('#step').text());
+    var count = 0;
+    // Active
+    window.addEventListener('focus', startTimer);
+   
+    // Inactive
+    window.addEventListener('blur', stopTimer);
+   
+    function timerHandler() {
+     count++;
+     document.getElementById("seconds").innerHTML = count;
+    }
+    // Start timer
+    function startTimer() {
+     console.log('focus');
+    }
+   
+    // Stop timer
+    function stopTimer() {
+   console.log('blur');
+    }
 
 });
 
@@ -46,17 +66,19 @@ function controller() {
 
         if (step == 0) {
             setpage("pointer", 1);
-            increment_trial_count();
+            // increment_trial_count();
         } else if (step == 1) {
-            increment_trial_count();
-            send_data('T1');
+            
+            setpage("observer", 2);
             setpage("pointer", 2);
             trial_state(0);
 
-        } else if (step == 2 && observer_step == 1) {
+            send_data('T1');
+
+        } else if (step == 2 ) {
             send_data('T2');
             setpage("pointer", 3);
-            setpage("observer", 2);
+            
         }
     }
 
@@ -135,6 +157,7 @@ function send_data(data) {
         }
     });
 }
+
 
 function countdown(time, trial_state) {
     if (trial_state == 1) {

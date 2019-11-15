@@ -51,7 +51,7 @@ function p_view($state)
 
     if ($state == 0)
     {
-        return "<p id = 'main'> When you are ready to start</br> press ENTER. </p>";
+        return "<p id = 'main'> All trials finished! </p>";
     }
     else if ($state == 1)
     {
@@ -59,11 +59,11 @@ function p_view($state)
     }
     else if ($state == 2)
     {
-        return "<p id = 'main'>$result</br> Press ENTER when you finish pointing.</p>";
+        return "<p id = 'main'>$result</br> Keep your  hand stil.</p>";
     }
     else if ($state == 3)
     {
-        return "<p id = 'main'>  Keep your  hand still.</p>";
+        return "<p id = 'main'>$result</br> Keep your  hand stil.</p>";
     }
     else
     {
@@ -76,7 +76,7 @@ function o_view($state)
 {
     if ($state == 0)
     {
-        return "<p id = 'main'> When you are ready to start.</br> press ENTER.</p>";
+        return "<p id = 'main'> All trials finished!</p>";
     }
     else if ($state == 1)
     {
