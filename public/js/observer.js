@@ -80,9 +80,20 @@ function controller() {
         }
         else if (step == 2 ) {
             send_data('T3');
+
+            var baseUrl = "http://www.soundjay.com/button/";
+            var audio = ["beep-01a.mp3", "beep-02.mp3", "beep-03.mp3", "beep-04.mp3", "beep-05.mp3", "beep-06.mp3", "beep-07.mp3", "beep-08b.mp3", "beep-09.mp3"];
+            new Audio(baseUrl + audio[1]).play(); 
+            
             setpage("observer", 3);
             updateContent(3);
             setpage("pointer", 4);
+
+
+
+                     //play corresponding audio
+
+
         } else if (step == 3) 
         {
             // if(!isNaN(parseInt($('input[name=selected_num]:checked').val())))
