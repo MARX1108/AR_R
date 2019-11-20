@@ -6,10 +6,26 @@ $(document).ready(function () {
     setpage("observer", currentState);
     setpage("pointer", currentState);
     step = parseInt($('#step').text());
+
+});
+
+$(document).on("click","#confidenceBtn", function(){
+    console.log("From ob.js confidenceBtnconfidenceBtnconfidenceBtn");
+    // handler();
+  });
+
+$(document).on("click","", function(e)
+{
+        var step = parseInt($('#step').text());
+        if(e.button == 0 && step != 3 && step != 4)
+        {
+            controller();
+        }
 });
 
 $(document).on("keypress", function (e) {
-    if (e.which == 13) {
+    var step = parseInt($('#step').text());
+    if (e.which == 13 && step != 3 && step != 4) {
         // state_inquery();
         controller();
     }
@@ -69,37 +85,37 @@ function controller() {
             setpage("pointer", 4);
         } else if (step == 3) 
         {
-            if(!isNaN(parseInt($('input[name=selected_num]:checked').val())))
-            {
+            // if(!isNaN(parseInt($('input[name=selected_num]:checked').val())))
+            // {
                 send_data('T4');
-                identified_number_submit();
+                // identified_number_submit();
                 setpage("observer", 4);
                 updateContent(4);
-            }
-            else
-            {
-                alert("You didn't select any number.\n Press Enter to dismiss the alert.");
-            }
+            // }
+            // else
+            // {
+            //     alert("You didn't select any number.\n Press Enter to dismiss the alert.");
+            // }
             
         } else if (step == 4 && pointer_step == 4 && trial != 20) 
         {
-            if(!isNaN(parseInt($('input[name=confidence]:checked').val())))
-            {
-                confidence_level();
-               
+            // if(!isNaN(parseInt($('input[name=confidence]:checked').val())))
+            // {
+                // confidence_level();
                 trial_state(1);
-                increment_trial_count();
+                
                 setpage("observer", 1);
                 setpage("pointer", 1);
-            }
-            else
-            {
-                alert("You didn't select any number.\n Press Enter to dismiss the alert.");
-            }
+                increment_trial_count();
+            // }
+            // else
+            // {
+            //     alert("You didn't select any number.\n Press Enter to dismiss the alert.");
+            // }
            
         } else if (step == 4 && pointer_step == 4 && trial == 20) 
         {
-            confidence_level();
+            // confidence_level();
             setpage("observer", 0);
             setpage("pointer", 0);
         }
@@ -107,8 +123,10 @@ function controller() {
 
 }
 
+
+
+
 function increment_trial_count(successFunc) {
-    // alert('increment');
     $.ajax({
         url: '../model/trial_number_count.php',
         data: {
@@ -117,8 +135,7 @@ function increment_trial_count(successFunc) {
         method: 'post',
         dataType: 'json',
         success: function(){
-            console.log("success");
-            // successFunc();
+            // console.log("success");
         },
         error: function (xhr, status, error) {
             alert(xhr.responseText);}
@@ -145,7 +162,7 @@ function trial_state(state) {
 }
 
 function setpage(view, state) {
-    console.log("view:" +view + " currentState:" + currentState + " toState:" +state);
+    // console.log("view:" +view + " currentState:" + currentState + " toState:" +state);
     $.ajax({
         url: '../model/manual.php',
         data: {
@@ -164,7 +181,6 @@ function setpage(view, state) {
 
 function updateContent(state) {
     // alert(state);
-    console.log("content updated");
     $.ajax({
         url: '../model/content.php',
         data: {
@@ -175,7 +191,7 @@ function updateContent(state) {
         method: 'post',
         dataType: 'json',
         success: function (output) {
-            console.log("content return:", output);
+            // console.log("content return:", output);
             $('#instruction').html(output.content);
         },
         error: function (xhr, status, error) {
@@ -194,15 +210,15 @@ function increment_trial_count() {
         dataType: 'json',
         success: function (output) {
             // alert(output.test);
-            console.log(
-                "experiment_id: ", output.experiment_id,
-                " pointer_ID: ", output.pointer_ID,
-                " observer_ID: ", output.observer_ID,
-                " virtual_type: ", output.virtual_type,
-                " spatial_type: ", output.spatial_type,
-                " rehearsal: ", output.rehearsal,
-                " testing_number_set: ", output.testing_number_set
-            );
+            // console.log(
+            //     "experiment_id: ", output.experiment_id,
+            //     " pointer_ID: ", output.pointer_ID,
+            //     " observer_ID: ", output.observer_ID,
+            //     " virtual_type: ", output.virtual_type,
+            //     " spatial_type: ", output.spatial_type,
+            //     " rehearsal: ", output.rehearsal,
+            //     " testing_number_set: ", output.testing_number_set
+            // );
         },
         error: function (xhr, status, error) {
             alert(xhr.responseText);
@@ -230,7 +246,7 @@ function send_data(data) {
 
 function identified_number_submit() {
     number = parseInt($('input[name=selected_num]:checked').val());
-    console.log(number);
+    // console.log(number);
     if (!isNaN(number)) {
         $.ajax({
             url: '../model/selected_num.php',
@@ -239,7 +255,7 @@ function identified_number_submit() {
             },
             method: 'post',
             success: function () {
-                // controller();
+                controller();
                 setTimeout(function () {
                     $.ajax({
                         url: '../model/sync.php',
@@ -278,7 +294,7 @@ function identified_number_submit() {
 
 function confidence_level() {
     number = parseInt($('input[name=confidence]:checked').val());
-    console.log(number);
+    // console.log(number);
     if (!isNaN(number)) {
         $.ajax({
             url: '../model/confidence_level.php',
@@ -287,7 +303,7 @@ function confidence_level() {
             },
             method: 'post',
             success: function () {
-                // controller();
+                controller();
                 setTimeout(function () {
                     $.ajax({
                         url: '../model/sync.php',
@@ -314,7 +330,7 @@ function confidence_level() {
             }
         });
     } else {
-        $('#confirmBtn').css({
+        $('#confidenceBtn').css({
             'color': '#eff0f1'
         });
     }

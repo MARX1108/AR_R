@@ -85,7 +85,7 @@ function o_view($state)
     else if ($state == 2)
     {
         return "<p>  Identify the number the pointer is pointing at
-        </br> Press ENTER when you have made your choice.
+        </br> Left Click Mouse when you have made your choice.
         </p>";
         
     }
@@ -112,24 +112,26 @@ function o_view($state)
             <div id = 'label_2'><input type='radio' name='selected_num' value='15' id='btn_number-one' class='form-radio' ><label for='radio-one'>15</label></div>
             <div id = 'label_2'><input type='radio' name='selected_num' value='16' id='btn_number-one' class='form-radio' ><label for='radio-one'>16</label></div>
             </div>
-            <p> Select the number you identified. </br> Press Enter to Comfirm. </p>
+            <p> Select the number you identified. </p>
+
+            <div class='text-center small' style= 'margin-top: 3%;'>
+            <button id = 'confirmBtn' onclick = 'identified_number_submit()' style='
+            color: #64C7FA;
+            text-decoration: none;
+            background-color: transparent;
+            background: white;
+            font-size: 250%;
+            padding: 1.5%;
+            border-radius: 29px;
+            border: #64C7FA;'
+            
+            > Confirm </button>
+            </div>
 
             
             "; 
 
-            // <div class='text-center small' style= 'margin-top: 7%;'>
-            // <button id = 'confirmBtn' onclick = 'identified_number_submit()' style='
-            // color: #64C7FA;
-            // text-decoration: none;
-            // background-color: transparent;
-            // background: white;
-            // font-size: 250%;
-            // padding: 1.5%;
-            // border-radius: 29px;
-            // border: #64C7FA;'
             
-            // > Confirm </button>
-            // </div>
     }
     else 
     {
@@ -153,8 +155,20 @@ function o_view($state)
         <p class = 'conf_label'>Very confident</p>
         </div>
 
-        <p> Please rate the confidence level of your observation. </br> Press Enter to Comfirm. </p> 
+        <p> Please rate the confidence level of your observation.  </p> 
 
+        <div class='text-center small' style= 'margin-top: 3%;'>
+            <button id = 'confidenceBtn' onclick = 'confidence_level()' style='
+            color: #64C7FA;
+            text-decoration: none;
+            background-color: transparent;
+            background: white;
+            font-size: 250%;
+            padding: 1.5%;
+            border-radius: 29px;
+            border: #64C7FA;'
+            > Confirm </button>
+            </div>
 
         ";
     }
