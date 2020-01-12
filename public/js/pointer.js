@@ -144,24 +144,26 @@ function increment_trial_count() {
         }
     });
 }
-
 function send_data(data) {
+    var dt = new Date();
+    var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds()+ ":" + dt.getMilliseconds();
+    console.log("time: " + time);
     $.ajax({
         url: '../model/send_data.php',
         data: {
-            data: data
+            data: data,
+            time: time
         },
         method: 'post',
         dataType: 'json',
         success: function (output) {
-            // $('#state > h2').append(" Trial " + output.trial_number);
+            // $('# state > h2 ').append(" Trial " + output.trial_number);
         },
         error: function (xhr, status, error) {
             // alert(xhr.responseText);
         }
     });
 }
-
 
 function countdown(time, trial_state) {
     if (trial_state == 1) {
