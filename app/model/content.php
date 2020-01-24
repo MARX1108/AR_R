@@ -75,7 +75,7 @@ function p_view($state)
 function o_view($state)
 {
     if ($state == 0)
-    {
+    { 
         return "<p id = 'main'> All trials finished!</p>";
     }
     else if ($state == 1)
@@ -85,7 +85,7 @@ function o_view($state)
     else if ($state == 2)
     {
         return "<p>  Identify the number the pointer is pointing at
-        </br> Left Click Mouse when you have made your choice.
+        </br> Press Touchpad when you have made your choice.
         </p>";
         
     }

@@ -3,11 +3,11 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
     // alert("From background.js: output2:"+output2);
     if (output2 == 'toPointer')
     {
-        getResults(5976, 6448);
+        getResults(211, 202);
     }
     else
     {
-        getResults(6329, 6338);
+        getResults(212, 215);
     }
 });
 
