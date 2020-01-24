@@ -92,9 +92,10 @@ function o_view($state)
     else if ($state == 3)
     {
         return "
-            
+            <--
             <div id = 'btn'>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='1' id='btn_number-one' class='form-radio' ><label for='radio-one'>1</label></div>
+            
+            <div id = 'label_2'><input type='radio' name='selected_num' value='1' id='btn_number-one' class='form-radio' >
             <div id = 'label_2'><input type='radio' name='selected_num' value='2' id='btn_number-one' class='form-radio' ><label for='radio-one'>2</label></div>
             <div id = 'label_2'><input type='radio' name='selected_num' value='3' id='btn_number-one' class='form-radio' ><label for='radio-one'>3</label></div>
             <div id = 'label_2'><input type='radio' name='selected_num' value='4' id='btn_number-one' class='form-radio' ><label for='radio-one'>4</label></div>
@@ -111,7 +112,9 @@ function o_view($state)
             <div id = 'label_2'><input type='radio' name='selected_num' value='14' id='btn_number-one' class='form-radio' ><label for='radio-one'>14</label></div>
             <div id = 'label_2'><input type='radio' name='selected_num' value='15' id='btn_number-one' class='form-radio' ><label for='radio-one'>15</label></div>
             <div id = 'label_2'><input type='radio' name='selected_num' value='16' id='btn_number-one' class='form-radio' ><label for='radio-one'>16</label></div>
-            </div>
+            </div> -->
+
+            
             <p> Select the number you identified. </p>
 
             <div class='text-center small' style= 'margin-top: 3%;'>
