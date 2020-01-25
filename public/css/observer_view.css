@@ -136,23 +136,22 @@ div#label_2 {
 
 
 /*-------------*/
-.form-radio {
-    /* -webkit-appearance: none; */
-    /* -moz-appearance: none; */
-    appearance: none;
-    display: inline-block;
-    position: relative;
-    background-color: #f1f1f1;
-    color: #666;
-    top: 10px;
-    height: 30px;
-    width: 30px;
-    border: 0;
-    border-radius: 50px;
-    cursor: pointer;
-    margin-right: 7px;
-    outline: none;
-}
+/* .form-radio {
+
+     appearance: none;
+     display: inline-block;
+     position: relative;
+     background-color: #f1f1f1;
+     color: #666;
+     top: 10px;
+     height: 30px;
+     width: 30px;
+     border: 0;
+     border-radius: 50px;
+     cursor: pointer;
+     margin-right: 7px;
+     outline: none;
+ } */
 
 /* .form-radio:checked::before { */
     /* position: absolute; */
@@ -164,26 +163,249 @@ div#label_2 {
 
 /* } */
 
-.form-radio:hover {
-    background-color: #f7f7f7;
-}
+/* // .form-radio:hover {
+//     background-color: #f7f7f7;
+// }
 
-.form-radio:checked {
-    background-color: #f1f1f1;
-}
+// .form-radio:checked {
+//     background-color: #f1f1f1;
+// }
 
-label {
-    /* font: 15px/1.7 'Open Sans', sans-serif; */
-    font-size: 350%;
-    color: #006ca2;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+// label {
+//     /* font: 15px/1.7 'Open Sans', sans-serif; */
+/* //     font-size: 350%;
+//     color: #006ca2;
+//     -webkit-font-smoothing: antialiased;
+//     -moz-osx-font-smoothing: grayscale;
+//     cursor: pointer;
+// }
+
+// .form-radio {
+//     border-radius: 50px;
+// } */ 
+
+/* [1] */
+/* [2] */
+/* [3] */
+/* [4] */
+/* [5] */
+/* [6] */
+/* Styles: */
+.icon {
+    position: relative;
+    background: white;
     cursor: pointer;
+    margin: auto;
+    color: deepskyblue;
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    line-height: 150px;
+    text-align: center;
+    font-size: 2.75em;
+    font-weight: bold;
+    transition: 0.24s 0.2s;
+}
+.icon:hover {
+    background: rgba(255, 255, 255, 0.75);
+}
+.menu {
+    position: absolute;
+    top: -75px;
+    left: -75px;
+    border: 150px solid transparent;
+    cursor: default;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 1.4s 0.07s;
+    z-index: -5;
+}
+.spread {
+    position: absolute;
+    top: -150px;
+    left: -150px;
+    transform-origin: 150px 150px;
+    transition: all 0.5s 0.1s;
+}
+.icon {
+   /* Where all the MAGIC happens: */
+}
+.icon .menu {
+    transition: transform 0.4s 0.08s, z-index 0s 0.5s;
+    transform: scale(1);
+    /* z-index: 5; */
+}
+.icon .spread, .icon .unit {
+    transition: all 0.6s;
+}
+.icon .spread:nth-child(1) {
+    transition-delay: 0.02s;
+    transform: rotate(67.5deg);
+}
+.icon .spread:nth-child(1) .unit {
+    transition-delay: 0.04s;
+    transform: rotate(652.5deg);
+}
+.icon .spread:nth-child(2) {
+    transition-delay: 0.04s;
+    transform: rotate(90deg);
+}
+.icon .spread:nth-child(2) .unit {
+    transition-delay: 0.08s;
+    transform: rotate(630deg);
+}
+.icon .spread:nth-child(3) {
+    transition-delay: 0.06s;
+    transform: rotate(112.5deg);
+}
+.icon .spread:nth-child(3) .unit {
+    transition-delay: 0.12s;
+    transform: rotate(607.5deg);
+}
+.icon .spread:nth-child(4) {
+    transition-delay: 0.08s;
+    transform: rotate(135deg);
+}
+.icon .spread:nth-child(4) .unit {
+    transition-delay: 0.16s;
+    transform: rotate(585deg);
+}
+.icon .spread:nth-child(5) {
+    transition-delay: 0.1s;
+    transform: rotate(157.5deg);
+}
+.icon .spread:nth-child(5) .unit {
+    transition-delay: 0.2s;
+    transform: rotate(562.5deg);
+}
+.icon .spread:nth-child(6) {
+    transition-delay: 0.12s;
+    transform: rotate(180deg);
+}
+.icon .spread:nth-child(6) .unit {
+    transition-delay: 0.24s;
+    transform: rotate(540deg);
+}
+.icon .spread:nth-child(7) {
+    transition-delay: 0.14s;
+    transform: rotate(202.5deg);
+}
+.icon .spread:nth-child(7) .unit {
+    transition-delay: 0.28s;
+    transform: rotate(517.5deg);
+}
+.icon .spread:nth-child(8) {
+    transition-delay: 0.16s;
+    transform: rotate(225deg);
+}
+.icon .spread:nth-child(8) .unit {
+    transition-delay: 0.32s;
+    transform: rotate(495deg);
+}
+.icon .spread:nth-child(9) {
+    transition-delay: 0.18s;
+    transform: rotate(247.5deg);
+}
+.icon .spread:nth-child(9) .unit {
+    transition-delay: 0.36s;
+    transform: rotate(472.5deg);
+}
+.icon .spread:nth-child(10) {
+    transition-delay: 0.2s;
+    transform: rotate(270deg);
+}
+.icon .spread:nth-child(10) .unit {
+    transition-delay: 0.4s;
+    transform: rotate(450deg);
+}
+.icon .spread:nth-child(11) {
+    transition-delay: 0.22s;
+    transform: rotate(292.5deg);
+}
+.icon .spread:nth-child(11) .unit {
+    transition-delay: 0.44s;
+    transform: rotate(427.5deg);
+}
+.icon .spread:nth-child(12) {
+    transition-delay: 0.24s;
+    transform: rotate(315deg);
+}
+.icon .spread:nth-child(12) .unit {
+    transition-delay: 0.48s;
+    transform: rotate(405deg);
+}
+.icon .spread:nth-child(13) {
+    transition-delay: 0.26s;
+    transform: rotate(337.5deg);
+}
+.icon .spread:nth-child(13) .unit {
+    transition-delay: 0.52s;
+    transform: rotate(382.5deg);
+}
+.icon .spread:nth-child(14) {
+    transition-delay: 0.28s;
+    transform: rotate(360deg);
+}
+.icon .spread:nth-child(14) .unit {
+    transition-delay: 0.56s;
+    transform: rotate(360deg);
+}
+.icon .spread:nth-child(15) {
+    transition-delay: 0.3s;
+    transform: rotate(382.5deg);
+}
+.icon .spread:nth-child(15) .unit {
+    transition-delay: 0.6s;
+    transform: rotate(337.5deg);
+}
+.icon .spread:nth-child(16) {
+    transition-delay: 0.32s;
+    transform: rotate(405deg);
+}
+.icon .spread:nth-child(16) .unit {
+    transition-delay: 0.64s;
+    transform: rotate(315deg);
+}
+/* END .icon:hover */
+.unit {
+    position: absolute;
+    background: dodgerblue;
+    font-size: 60%;
+    text-decoration: none;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    color: white;
+    border-radius: 50%;
+    transition: 0.6s;
+}
+.spread input[type="radio"] {
+    opacity: 1;
+    position: fixed;
+    width: 10;
+}
+/* Just CodePen layout stuff: */
+body, a, ul, li {
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    list-style: none;
+}
+html, body {
+    height: 100%;
+    min-height: 300px;
+}
+body {
+    font-family: sans-serif;
+    /* background: radial-gradient(deepskyblue, dodgerblue); */
+    transform: translate3d(0, 0, 0);
+}
+.icon {
+    top: 50%;
+    margin-top: -75px;
 }
 
-.form-radio {
-    border-radius: 50px;
-}
+
 
 /* extensions------------------------------------------------- */
 

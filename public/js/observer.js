@@ -1,18 +1,39 @@
 var currentState = 0 ;
 $(document).ready(function () {
-
-    
     sync();
     setpage("observer", currentState);
     setpage("pointer", currentState);
-    step = parseInt($('#step').text());
-
 });
 
-$(document).on("click","#confidenceBtn", function(){
-    console.log("From ob.js confidenceBtnconfidenceBtnconfidenceBtn");
-    // handler();
-  });
+
+
+$(document).bind("DOMSubtreeModified", function() {
+    step = parseInt($('#step').text());
+    if(step == 3)
+    {
+        $('.header').css("margin-bottom", "15%");
+    }
+    else
+    {
+        $('.header').css("margin-bottom", "0%");
+    }
+});
+
+
+function fire(e)
+{
+    // alert("from fire: "+ e);
+    // $('#btn_number').prop('checked', false);
+    // $('#btn_number_'+e).css("checked", "checked");
+    // $('#btn_number_'+e).attr("checked",true).checkboxradio("refresh");
+
+
+    // $('input[name=selected_num][value=' + e +']').attr('checked', true); // or 'checked'
+    $('input[name=selected_num][value=' + e +']').prop("checked", true);
+
+    // $('#unit_' + e).css("border", "0%");
+}
+
 
 $(document).on("click","", function(e)
 {

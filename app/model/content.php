@@ -91,48 +91,53 @@ function o_view($state)
     }
     else if ($state == 3)
     {
-        return "
-            <--
-            <div id = 'btn'>
-            
-            <div id = 'label_2'><input type='radio' name='selected_num' value='1' id='btn_number-one' class='form-radio' >
-            <div id = 'label_2'><input type='radio' name='selected_num' value='2' id='btn_number-one' class='form-radio' ><label for='radio-one'>2</label></div>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='3' id='btn_number-one' class='form-radio' ><label for='radio-one'>3</label></div>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='4' id='btn_number-one' class='form-radio' ><label for='radio-one'>4</label></div>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='5' id='btn_number-one' class='form-radio' ><label for='radio-one'>5</label></div>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='6' id='btn_number-one' class='form-radio' ><label for='radio-one'>6</label></div>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='7' id='btn_number-one' class='form-radio' ><label for='radio-one'>7</label></div>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='8' id='btn_number-one' class='form-radio' ><label for='radio-one'>8</label></div>
-            <br>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='9' id='btn_number-one' class='form-radio' ><label for='radio-one'>9</label></div>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='10' id='btn_number-one' class='form-radio' ><label for='radio-one'>10</label></div>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='11' id='btn_number-one' class='form-radio' ><label for='radio-one'>11</label></div>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='12' id='btn_number-one' class='form-radio' ><label for='radio-one'>12</label></div>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='13' id='btn_number-one' class='form-radio' ><label for='radio-one'>13</label></div>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='14' id='btn_number-one' class='form-radio' ><label for='radio-one'>14</label></div>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='15' id='btn_number-one' class='form-radio' ><label for='radio-one'>15</label></div>
-            <div id = 'label_2'><input type='radio' name='selected_num' value='16' id='btn_number-one' class='form-radio' ><label for='radio-one'>16</label></div>
-            </div> -->
+        $arg = "<div class='icon' > 
+        
+        
+                <button id = 'confirmBtn' onclick = 'identified_number_submit()' style='
+                color: #64C7FA;
+                text-decoration: none;
+                background-color: transparent;
+                background: white;
+                border-radius: 29px;
+                border: #64C7FA;'> Confirm </button>
 
-            
-            <p> Select the number you identified. </p>
 
-            <div class='text-center small' style= 'margin-top: 3%;'>
-            <button id = 'confirmBtn' onclick = 'identified_number_submit()' style='
-            color: #64C7FA;
-            text-decoration: none;
-            background-color: transparent;
-            background: white;
-            font-size: 250%;
-            padding: 1.5%;
-            border-radius: 29px;
-            border: #64C7FA;'
-            
-            > Confirm </button>
+                <ul class='menu'>
+                ";
+
+        
+        for ($x = 1; $x <= 16; $x++)
+        {
+            $li = "<li class='spread'>
+            <a class='unit' id = 'unit_".$x."' href='javascript:void(0)' onclick='fire(".$x.");'>".$x."<input type='radio' name='selected_num' value='".$x."' id='btn_number_".$x."' class='form-radio'/>
+            </a>
+            </li>";
+            $arg = $arg.$li;
+        }
+
+        $arg = $arg."</ul>
+        <!--  
             </div>
-
-            
-            "; 
+                <p> Select the number you identified. </p> 
+  
+              <div class='text-center small' style= 'margin-top: 3%;'>
+              <button id = 'confirmBtn' onclick = 'identified_number_submit()' style='
+              color: #64C7FA;
+              text-decoration: none;
+              background-color: transparent;
+              background: white;
+              font-size: 250%;
+              padding: 1.5%;
+              border-radius: 29px;
+              border: #64C7FA;'
+              
+              > Confirm </button>
+              </div> -->";
+  
+              
+              
+        return $arg; 
 
             
     }
