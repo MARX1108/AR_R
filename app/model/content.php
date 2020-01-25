@@ -93,7 +93,7 @@ function o_view($state)
     {
         $arg = "<div class='icon' > 
         
-        
+
                 <button id = 'confirmBtn' onclick = 'identified_number_submit()' style='
                 color: #64C7FA;
                 text-decoration: none;
@@ -117,6 +117,12 @@ function o_view($state)
         }
 
         $arg = $arg."</ul>
+        <p style = '
+        font-size: 100%;
+        margin-top: 72%;
+        margin-left: -370px;
+        width: 1000px;'> Click Number to select the number you identified. </p> 
+
         <!--  
             </div>
                 <p> Select the number you identified. </p> 
@@ -144,6 +150,21 @@ function o_view($state)
     else 
     {
         return "
+    
+        <p> Please rate the confidence level of your observation.  </p> 
+
+        <div class='text-center small' style= 'margin-top: 3%;'>
+            <button id = 'confidenceBtn' onclick = 'confidence_level()' style='
+            color: #64C7FA;
+            text-decoration: none;
+            background-color: transparent;
+            background: white;
+            font-size: 350%;
+            padding: 1.5%;
+            border-radius: 29px;
+            border: #64C7FA;'
+            > Confirm </button>
+            </div>
 
         
         <div id = 'btn'>
@@ -163,20 +184,7 @@ function o_view($state)
         <p class = 'conf_label'>Very confident</p>
         </div>
 
-        <p> Please rate the confidence level of your observation.  </p> 
 
-        <div class='text-center small' style= 'margin-top: 3%;'>
-            <button id = 'confidenceBtn' onclick = 'confidence_level()' style='
-            color: #64C7FA;
-            text-decoration: none;
-            background-color: transparent;
-            background: white;
-            font-size: 250%;
-            padding: 1.5%;
-            border-radius: 29px;
-            border: #64C7FA;'
-            > Confirm </button>
-            </div>
 
         ";
     }

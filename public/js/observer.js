@@ -12,10 +12,19 @@ $(document).bind("DOMSubtreeModified", function() {
     if(step == 3)
     {
         $('.header').css("margin-bottom", "15%");
+        $('.content').css("height", "100px");
+        $('.content').css("width", "100px");
+        $('.content').css("position", "absolute");
+        $('.content').css("margin-left", "46%");
+    
     }
     else
     {
         $('.header').css("margin-bottom", "0%");
+        $('.content').css("height", "");
+        $('.content').css("width", "");
+        $('.content').css("position", "");
+        $('.content').css("margin-left", "");
     }
 });
 
