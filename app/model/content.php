@@ -153,7 +153,7 @@ function o_view($state)
     
         <p> Please rate the confidence level of your observation.  </p> 
 
-        <div class='text-center small' style= 'margin-top: 3%;'>
+        <div class='text-center small' style= 'margin-top: 1%;'>
             <button id = 'confidenceBtn' onclick = 'confidence_level()' style='
             color: #64C7FA;
             text-decoration: none;

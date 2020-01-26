@@ -15,7 +15,7 @@ $(document).bind("DOMSubtreeModified", function() {
         $('.content').css("height", "100px");
         $('.content').css("width", "100px");
         $('.content').css("position", "absolute");
-        $('.content').css("margin-left", "46%");
+        $('.content').css("margin-left", "45%");
     
     }
     else
