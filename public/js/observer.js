@@ -38,8 +38,9 @@ function fire(e)
 
 
     // $('input[name=selected_num][value=' + e +']').attr('checked', true); // or 'checked'
+    $('.unit').css("color", "#ffffff");
     $('input[name=selected_num][value=' + e +']').prop("checked", true);
-
+    $('input[name=selected_num][value=' + e +']').parent().css("color", "#b60c0c");
     // $('#unit_' + e).css("border", "0%");
 }
 
