@@ -117,12 +117,7 @@ function o_view($state)
         }
 
         $arg = $arg."</ul>
-        <p style = '
-        font-size: 100%;
-        margin-top: 72%;
-        margin-left: -370px;
-        width: 1000px;'> Click Number to select the number you identified. </p> 
-
+       
         <!--  
             </div>
                 <p> Select the number you identified. </p> 
@@ -139,7 +134,14 @@ function o_view($state)
               border: #64C7FA;'
               
               > Confirm </button>
-              </div> -->";
+              </div> 
+              </div>
+              <p style = '
+              font-size: 100%;
+
+              width: 1000px;'> Click Number to select the number you identified. </p>  -->
+      
+              ";
   
               
               
