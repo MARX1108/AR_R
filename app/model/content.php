@@ -118,28 +118,9 @@ function o_view($state)
 
         $arg = $arg."</ul>
        
-        <!--  
-            </div>
-                <p> Select the number you identified. </p> 
-  
-              <div class='text-center small' style= 'margin-top: 3%;'>
-              <button id = 'confirmBtn' onclick = 'identified_number_submit()' style='
-              color: #64C7FA;
-              text-decoration: none;
-              background-color: transparent;
-              background: white;
-              font-size: 250%;
-              padding: 1.5%;
-              border-radius: 29px;
-              border: #64C7FA;'
-              
-              > Confirm </button>
-              </div> 
-              </div>
-              <p style = '
-              font-size: 100%;
 
-              width: 1000px;'> Click Number to select the number you identified. </p>  -->
+              </div>
+            
       
               ";
   
