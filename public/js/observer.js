@@ -7,7 +7,13 @@ $(document).ready(function () {
 
 
 
-$(document).bind("DOMSubtreeModified", function() {
+// $(document).bind("DOMSubtreeModified", function() {
+//     radio_position_adjust();
+// });
+
+
+function radio_position_adjust()
+{
     step = parseInt($('#step').text());
     if(step == 3)
     {
@@ -26,15 +32,10 @@ $(document).bind("DOMSubtreeModified", function() {
         $('.content').css("position", "");
         $('.content').css("margin-left", "");
     }
-});
-
+}
 
 function fire(e)
 {
-    // alert("from fire: "+ e);
-    // $('#btn_number').prop('checked', false);
-    // $('#btn_number_'+e).css("checked", "checked");
-    // $('#btn_number_'+e).attr("checked",true).checkboxradio("refresh");
 
 
     // $('input[name=selected_num][value=' + e +']').attr('checked', true); // or 'checked'
@@ -75,7 +76,7 @@ function sync() {
  
                 setTimeout(function () {
                     sync();
-                }, 1000);
+                }, 500);
             
                 if(currentState != output.ostate){
                     updateContent(output.ostate);
@@ -92,6 +93,7 @@ function sync() {
             $('#step').html(output.ostate);
             $('#pointer_step').html(output.pstate);
 
+            radio_position_adjust();
 
         },
         error: function (xhr, status, error) {
